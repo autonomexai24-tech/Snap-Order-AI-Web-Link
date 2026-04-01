@@ -9,53 +9,64 @@ interface TotalBannerMobileProps {
   onViewGST: () => void
 }
 
+/**
+ * TotalBannerMobile — Premium Receipt style
+ * Design Principles:
+ * - Edge-to-edge solid emerald block.
+ * - Grand Total is the hero (Large typography, white text).
+ * - Breakdown elements clearly visible in translucent whites.
+ */
 export function TotalBannerMobile({ totals, onViewGST }: TotalBannerMobileProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden">
-      <div className="px-4 py-4 flex flex-col gap-3">
-        <div className="flex flex-col gap-2">
+    <div className="bg-emerald-600 rounded-2xl shadow-lg mt-6 overflow-hidden">
+      <div className="px-5 py-6 flex flex-col gap-5">
+        
+        {/* Breakdown elements */}
+        <div className="flex flex-col gap-2.5">
           {totals.discountAmount > 0 && (
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground">Subtotal</span>
-              <span className="text-xs tabular-nums text-muted-foreground">
+            <div className="flex items-center justify-between text-emerald-100">
+              <span className="text-sm font-medium tracking-wide">Subtotal</span>
+              <span className="text-sm tabular-nums">
                 {formatINR(totals.subTotal)}
               </span>
             </div>
           )}
           {totals.discountAmount > 0 && (
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground">Discount</span>
-              <span className="text-xs tabular-nums text-red-500 font-medium">
+            <div className="flex items-center justify-between text-white font-semibold">
+              <span className="text-sm tracking-wide">Discount</span>
+              <span className="text-sm tabular-nums">
                 - {formatINR(totals.discountAmount)}
               </span>
             </div>
           )}
-          <div className="flex items-center justify-between">
-            <span className="text-xs text-muted-foreground">Total GST</span>
-            <span className="text-xs tabular-nums text-muted-foreground">
+          <div className="flex items-center justify-between text-emerald-100">
+            <span className="text-sm font-medium tracking-wide">Total GST</span>
+            <span className="text-sm tabular-nums">
               {formatINR(totals.totalGst)}
             </span>
           </div>
         </div>
 
-        <div className="h-px bg-border" aria-hidden="true" />
+        <div className="h-px bg-emerald-500/50" aria-hidden="true" />
 
+        {/* Hero Grand Total */}
         <div className="flex items-center justify-between">
-          <div className="flex flex-col gap-0.5">
-            <span className="text-xs text-muted-foreground uppercase tracking-wide font-medium">
+          <div className="flex flex-col gap-1 text-white">
+            <span className="text-xs uppercase tracking-[0.15em] font-semibold text-emerald-100">
               Grand Total
             </span>
-            <span className="text-2xl font-bold text-foreground tabular-nums">
+            <span className="text-3xl font-extrabold tabular-nums tracking-tight">
               {formatINR(totals.grandTotal)}
             </span>
           </div>
+          
           <button
             type="button"
             onClick={onViewGST}
-            className="flex items-center gap-1 text-[color:var(--brand-indigo)] text-xs font-medium min-h-[44px] px-3 rounded-xl active:scale-[0.97] transition-transform"
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 text-white active:bg-white/20 transition-colors"
+            aria-label="View GST Breakup"
           >
-            View GST Breakup
-            <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
+            <ChevronRight className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
       </div>

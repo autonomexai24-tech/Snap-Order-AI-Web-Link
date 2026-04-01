@@ -7,7 +7,7 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'QuickQuote — Instant Digital Quotations for Indian SMEs',
+  title: 'Quotation — Instant Digital Quotations for Indian SMEs',
   description: 'Send professional GST-ready quotations. Clients can review and pay instantly via UPI.',
   generator: 'v0.app',
   icons: {

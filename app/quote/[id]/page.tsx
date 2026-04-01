@@ -12,10 +12,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id } = await params
   const quote = getQuoteById(id)
   if (!quote) {
-    return { title: "Quote Not Found | QuickQuote" }
+    return { title: "Quote Not Found" }
   }
   return {
-    title: `Quote ${quote.quoteNumber} from ${quote.seller.name} | QuickQuote`,
+    title: `Quote ${quote.documentNumber} from ${quote.seller.name}`,
     description: `Review and pay your quotation of ${new Intl.NumberFormat("en-IN", {
       style: "currency",
       currency: "INR",

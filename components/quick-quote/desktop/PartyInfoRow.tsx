@@ -37,7 +37,7 @@ export function PartyInfoRow({ seller, buyer }: PartyInfoRowProps) {
     <div className="flex gap-8">
       <PartyBlock label="From" party={seller} />
       <div className="w-px bg-border flex-shrink-0" aria-hidden="true" />
-      <PartyBlock label="Bill To" party={buyer} />
+      <PartyBlock label="Prepared For" party={buyer} />
     </div>
   )
 }

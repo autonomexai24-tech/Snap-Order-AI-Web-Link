@@ -13,7 +13,7 @@ export function DocumentHeader({ quote }: DocumentHeaderProps) {
       <div className="flex flex-col gap-1">
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold text-primary tracking-tight">
-            QuickQuote
+            Quotation
           </span>
         </div>
         <p className="text-xs text-muted-foreground">

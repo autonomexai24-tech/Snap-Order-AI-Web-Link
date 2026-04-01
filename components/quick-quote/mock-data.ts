@@ -1,9 +1,12 @@
-import type { Quote } from "./types"
+// Foundation: Premium Slate & Emerald Geometric Quotation
+// All "QQ" (QuickQuote) and "Invoice" references have been purged.
+import type { QuotationDocument } from "./types"
 
-export const MOCK_QUOTES: Record<string, Quote> = {
-  "QQ-2025-047": {
-    id: "QQ-2025-047",
-    quoteNumber: "QQ-2025-047",
+/** Brand-neutral document store. Keys match documentNumber. */
+export const MOCK_DOCUMENTS: Record<string, QuotationDocument> = {
+  "PRQ-2025-047": {
+    id: "PRQ-2025-047",
+    documentNumber: "PRQ-2025-047",
     status: "sent",
     issuedAt: "2025-06-10",
     validUntil: "2025-07-10",
@@ -92,7 +95,7 @@ export const MOCK_QUOTES: Record<string, Quote> = {
     discount: 2500,
 
     notes:
-      "Payment due within 15 days from invoice date. Late payment will attract 1.5% interest per month. Goods once sold will not be accepted back without prior written approval.",
+      "Payment due within 15 days from quotation date. Late payment will attract 1.5% interest per month. Goods once sold will not be accepted back without prior written approval.",
 
     termsAndConditions:
       "1. Prices are ex-warehouse Mumbai. Freight at actuals will be charged extra.\n2. Goods remain property of Bharat Steel & Hardware Traders until full payment is received.\n3. Any disputes subject to Mumbai jurisdiction only.\n4. GSTIN must be provided at time of order to avail GST credit.",
@@ -109,9 +112,9 @@ export const MOCK_QUOTES: Record<string, Quote> = {
     upiName: "Bharat Steel & Hardware",
   },
 
-  demo: {
+  "demo": {
     id: "demo",
-    quoteNumber: "QQ-2025-001",
+    documentNumber: "PRQ-2025-001",
     status: "sent",
     issuedAt: "2025-06-01",
     validUntil: "2025-07-01",
@@ -208,6 +211,14 @@ export const MOCK_QUOTES: Record<string, Quote> = {
   },
 }
 
-export function getQuoteById(id: string): Quote | null {
-  return MOCK_QUOTES[id] ?? null
+/** @deprecated Use MOCK_DOCUMENTS */
+export const MOCK_QUOTES = MOCK_DOCUMENTS
+
+export function getDocumentById(id: string): QuotationDocument | null {
+  return MOCK_DOCUMENTS[id] ?? null
+}
+
+/** @deprecated Use getDocumentById */
+export function getQuoteById(id: string): QuotationDocument | null {
+  return getDocumentById(id)
 }

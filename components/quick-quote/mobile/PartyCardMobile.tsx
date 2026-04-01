@@ -30,7 +30,7 @@ export function PartyCardMobile({ seller, buyer }: PartyCardMobileProps) {
   return (
     <div className="flex flex-col gap-3">
       <PartyMiniCard label="From" party={seller} />
-      <PartyMiniCard label="Bill To" party={buyer} />
+      <PartyMiniCard label="Prepared For" party={buyer} />
     </div>
   )
 }

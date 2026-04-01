@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import type { Quote } from "../types"
+import type { QuotationDocument } from "../types"
 import { computeTotals } from "../utils"
 import { MobileHeader } from "./MobileHeader"
 import { PartyCardMobile } from "./PartyCardMobile"
@@ -9,9 +9,10 @@ import { ItemCardList } from "./ItemCardList"
 import { TotalBannerMobile } from "./TotalBannerMobile"
 import { StickyActionBar } from "./StickyActionBar"
 import { GSTSummaryDrawer } from "./GSTSummaryDrawer"
+import { SignatureBlock } from "../shared/SignatureBlock"
 
 interface MobileLayoutProps {
-  quote: Quote
+  quote: QuotationDocument
 }
 
 export function MobileLayout({ quote }: MobileLayoutProps) {
@@ -29,6 +30,9 @@ export function MobileLayout({ quote }: MobileLayoutProps) {
           totals={totals}
           onViewGST={() => setIsGSTDrawerOpen(true)}
         />
+
+        {/* Authorized Signatory Space */}
+        <SignatureBlock className="mt-8 mb-6 pr-2" signatureName={quote.seller.name} />
       </div>
 
       <StickyActionBar

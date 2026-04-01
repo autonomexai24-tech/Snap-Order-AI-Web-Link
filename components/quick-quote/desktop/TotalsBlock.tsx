@@ -56,55 +56,53 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
       label: "Total GST",
       value: formatINR(totals.totalGst),
     },
-    {
-      label: "Grand Total",
-      value: formatINR(totals.grandTotal),
-      isGrand: true,
-    },
   ]
 
   return (
-    <div className="flex justify-end">
-      <div className="w-full max-w-[360px] border border-border rounded-lg overflow-hidden">
+    <div className="flex justify-end mt-2">
+      {/* Container max-w matching GSTBreakupTable or slightly tighter, flush to right edge natively or fixed width. Let's fix width. */}
+      <div className="w-full max-w-[420px] border border-border bg-white flex flex-col">
+        {/* Upper details */}
         <div className="flex flex-col divide-y divide-border">
           {rows.map((row) => (
             <div
               key={row.label}
-              className={[
-                "flex items-center justify-between px-5",
-                row.isGrand
-                  ? "py-4 bg-primary"
-                  : "py-2.5 bg-white",
-              ].join(" ")}
+              className="flex items-center justify-between px-6 py-2.5 bg-white"
             >
               <span
                 className={[
-                  "text-sm",
-                  row.isGrand
-                    ? "font-bold text-primary-foreground"
-                    : row.isMuted
-                    ? "text-muted-foreground"
-                    : "text-foreground font-medium",
+                  "text-[13px] tracking-wide",
+                  row.isMuted
+                    ? "text-muted-foreground font-medium"
+                    : "text-slate-700 font-semibold uppercase",
                 ].join(" ")}
               >
                 {row.label}
               </span>
               <span
                 className={[
-                  "text-sm tabular-nums",
-                  row.isGrand
-                    ? "font-bold text-primary-foreground text-base"
-                    : row.isNegative
-                    ? "text-red-600 font-medium"
+                  "text-sm tabular-nums font-mono",
+                  row.isNegative
+                    ? "text-red-600 font-semibold"
                     : row.isMuted
-                    ? "text-muted-foreground"
-                    : "font-semibold text-foreground",
+                    ? "text-muted-foreground font-medium"
+                    : "font-semibold text-slate-900",
                 ].join(" ")}
               >
                 {row.value}
               </span>
             </div>
           ))}
+        </div>
+
+        {/* Full-width Emerald Green color-block for the Grand Total */}
+        <div className="flex items-center justify-between px-6 py-4 bg-[#059669] text-white">
+          <span className="text-[14px] font-bold uppercase tracking-widest">
+            Grand Total
+          </span>
+          <span className="text-xl tabular-nums font-mono font-bold text-emerald-50">
+            {formatINR(totals.grandTotal)}
+          </span>
         </div>
       </div>
     </div>

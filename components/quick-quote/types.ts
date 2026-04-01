@@ -1,4 +1,9 @@
-export type QuoteStatus = "draft" | "sent" | "accepted" | "paid" | "expired"
+// Foundation: Premium Slate & Emerald Geometric Quotation
+// Brand-neutral document status — no vendor-specific labels
+export type DocumentStatus = "draft" | "sent" | "accepted" | "paid" | "expired"
+
+/** @deprecated Use DocumentStatus */
+export type QuoteStatus = DocumentStatus
 
 export interface Party {
   name: string
@@ -39,10 +44,12 @@ export interface GSTLine {
   total: number
 }
 
-export interface Quote {
+/** Brand-neutral quotation document — no "QuickQuote" / "Invoice" identifiers. */
+export interface QuotationDocument {
   id: string
-  quoteNumber: string
-  status: QuoteStatus
+  /** Human-readable document reference, e.g. "PRQ-2025-047" */
+  documentNumber: string
+  status: DocumentStatus
   issuedAt: string   // ISO date string
   validUntil: string // ISO date string
   poRef?: string
@@ -57,6 +64,9 @@ export interface Quote {
   upiId: string
   upiName: string
 }
+
+/** @deprecated Use QuotationDocument */
+export type Quote = QuotationDocument & { quoteNumber: string }
 
 export interface ComputedTotals {
   subTotal: number

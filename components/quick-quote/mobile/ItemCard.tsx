@@ -8,48 +8,40 @@ interface ItemCardProps {
   index: number
 }
 
+/**
+ * ItemCard — Premium Receipt style (Mobile Specialist Stage 3)
+ *
+ * Design principles:
+ * - Pure typographic structural layout with zero borders or shadows.
+ * - Heavy top padding for generous negative space.
+ * - Bold Slate Item Name, Bold Emerald far-right Total on row 1.
+ * - Muted Qty x Rate as sub-line on row 2.
+ */
 export function ItemCard({ item, index }: ItemCardProps) {
   const lineTotal = calcLineTotal(item)
 
   return (
     <div
-      className="bg-white rounded-2xl shadow-sm border border-border p-4 flex flex-col gap-3 active:scale-[0.98] transition-transform"
+      className="pt-6 pb-2 cursor-default select-none flex flex-col gap-1"
       role="listitem"
     >
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-start gap-2.5 flex-1 min-w-0">
-          <span className="min-w-[22px] h-[22px] rounded-full bg-[color:var(--brand-indigo-light)] text-[color:var(--brand-indigo)] text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
-            {index + 1}
-          </span>
-          <p className="text-sm font-semibold text-foreground leading-snug">
-            {item.description}
-          </p>
-        </div>
-        <p className="text-sm font-bold text-foreground tabular-nums flex-shrink-0">
+      <div className="flex items-start justify-between gap-4">
+        <p className="text-base font-bold leading-snug text-slate-900 tracking-tight flex-1">
+          {item.description}
+        </p>
+        <p className="text-base font-bold tabular-nums text-emerald-600 flex-shrink-0">
           {formatINR(lineTotal)}
         </p>
       </div>
 
-      <div className="flex items-center gap-2 flex-wrap pl-7">
-        <span className="text-xs font-mono bg-neutral-50 border border-border text-muted-foreground rounded px-2 py-0.5">
-          HSN {item.hsnCode}
-        </span>
-        <span className="text-xs bg-neutral-50 border border-border text-muted-foreground rounded-full px-2 py-0.5">
-          {item.unit}
-        </span>
-        <span className="text-xs bg-[color:var(--brand-amber-light)] text-[color:var(--brand-amber)] border border-[color:var(--brand-amber)]/20 rounded-full px-2 py-0.5 font-medium">
-          GST {item.gstRate}%
-        </span>
-      </div>
-
-      <div className="flex items-center gap-1 pl-7 text-xs text-muted-foreground">
+      <div className="flex items-center text-sm text-slate-500">
         <span className="tabular-nums">
-          {item.qty.toLocaleString("en-IN")} {item.unit}
+          {item.qty.toLocaleString("en-IN")}
         </span>
-        <span className="text-muted-foreground/50">&times;</span>
-        <span className="tabular-nums">{formatINR(item.rate)}</span>
-        <span className="text-muted-foreground/50">=</span>
-        <span className="tabular-nums font-medium text-foreground">{formatINR(lineTotal)}</span>
+        <span className="mx-1.5 text-slate-300">×</span>
+        <span className="tabular-nums">
+          {formatINR(item.rate)}
+        </span>
       </div>
     </div>
   )

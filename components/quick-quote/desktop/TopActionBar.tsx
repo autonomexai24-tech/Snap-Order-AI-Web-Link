@@ -33,7 +33,7 @@ export function TopActionBar({ quote, grandTotal, onPayClick }: TopActionBarProp
       <div className="max-w-[794px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="text-lg font-bold text-primary tracking-tight">
-            QuickQuote
+            Quotation
           </span>
           <div className="h-4 w-px bg-border" aria-hidden="true" />
           <span className="text-sm text-muted-foreground font-mono">

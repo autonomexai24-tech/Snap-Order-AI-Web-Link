@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react"
 import { useIsMobile } from "@/hooks/use-mobile"
-import type { Quote } from "./types"
+import type { QuotationDocument } from "./types"
 import { MobileLayout } from "./mobile/MobileLayout"
 import { DesktopLayout } from "./desktop/DesktopLayout"
 
 interface QuotePageShellProps {
-  quote: Quote
+  quote: QuotationDocument
 }
 
 export function QuotePageShell({ quote }: QuotePageShellProps) {
