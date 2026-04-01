@@ -215,7 +215,9 @@ export const MOCK_DOCUMENTS: Record<string, QuotationDocument> = {
 export const MOCK_QUOTES = MOCK_DOCUMENTS
 
 export function getDocumentById(id: string): QuotationDocument | null {
-  return MOCK_DOCUMENTS[id] ?? null
+  // Fallback for legacy QuickQuote 'QQ-' URLs. Automatically routes to new 'PRQ-' data.
+  const resolvedId = id.startsWith("QQ-") ? id.replace("QQ-", "PRQ-") : id;
+  return MOCK_DOCUMENTS[id] ?? MOCK_DOCUMENTS[resolvedId] ?? null
 }
 
 /** @deprecated Use getDocumentById */
