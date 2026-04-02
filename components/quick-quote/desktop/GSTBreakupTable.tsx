@@ -25,51 +25,48 @@ export function GSTBreakupTable({ gstLines, isInterState }: GSTBreakupTableProps
         </h2>
         <div className="w-full">
           <Table>
-            <TableHeader className="bg-[#1E3A8A]">
-              <TableRow className="border-none hover:bg-[#1E3A8A]">
-                <TableHead className="text-[10px] text-white uppercase tracking-widest font-bold py-2.5 h-auto">Tax Type</TableHead>
-                <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-2.5 h-auto">Taxable Value</TableHead>
+            <TableHeader>
+              <TableRow className="border-none hover:bg-transparent">
+                <TableHead className="text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-slate-900 rounded-tl-sm">Tax Type</TableHead>
+                <TableHead className="text-right text-[10px] text-slate-300 uppercase tracking-widest font-bold py-3 h-auto bg-slate-900">Taxable Value</TableHead>
                 {!isInterState && (
                   <>
-                    <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-2.5 h-auto">CGST</TableHead>
-                    <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-2.5 h-auto">SGST</TableHead>
+                    <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-orange-500">CGST</TableHead>
+                    <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-orange-500">SGST</TableHead>
                   </>
                 )}
                 {isInterState && (
-                  <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-2.5 h-auto">IGST</TableHead>
+                  <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-orange-500">IGST</TableHead>
                 )}
-                <TableHead className="text-right text-[10px] text-[#F59E0B] uppercase tracking-widest font-extrabold py-2.5 h-auto pr-4">Total Tax</TableHead>
+                <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-extrabold py-3 h-auto pr-4 bg-orange-500 rounded-tr-sm">Total Tax</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {gstLines.map((line, idx) => (
+              {gstLines.map((line) => (
                 <TableRow 
                   key={line.label} 
-                  className={[
-                    "border-b border-slate-100", 
-                    idx % 2 === 1 ? "bg-[#FEF3C7]/50" : "bg-white"
-                  ].join(" ")}
+                  className="border-b border-slate-100 bg-white hover:bg-slate-50 transition-colors"
                 >
-                  <TableCell className="text-xs font-bold text-[#1E3A8A]">{line.label}</TableCell>
-                  <TableCell className="text-right text-[13px] font-mono font-medium text-[#1E3A8A]">
+                  <TableCell className="text-xs font-bold text-slate-800 py-4">{line.label}</TableCell>
+                  <TableCell className="text-right text-[13px] font-mono font-medium text-slate-600 py-4">
                     {formatINR(line.taxableAmount)}
                   </TableCell>
                   {!isInterState && (
                     <>
-                      <TableCell className="text-right text-[13px] font-mono font-medium text-[#1E3A8A]">
+                      <TableCell className="text-right text-[13px] font-mono font-medium text-slate-600 py-4">
                         {formatINR(line.cgst)}
                       </TableCell>
-                      <TableCell className="text-right text-[13px] font-mono font-medium text-[#1E3A8A]">
+                      <TableCell className="text-right text-[13px] font-mono font-medium text-slate-600 py-4">
                         {formatINR(line.sgst)}
                       </TableCell>
                     </>
                   )}
                   {isInterState && (
-                    <TableCell className="text-right text-[13px] font-mono font-medium text-[#1E3A8A]">
+                    <TableCell className="text-right text-[13px] font-mono font-medium text-slate-600 py-4">
                       {formatINR(line.igst)}
                     </TableCell>
                   )}
-                  <TableCell className="text-right text-[14px] font-mono font-bold text-[#1E3A8A] pr-4">
+                  <TableCell className="text-right text-[14px] font-mono font-bold text-slate-900 pr-4 py-4">
                     {formatINR(line.total)}
                   </TableCell>
                 </TableRow>

@@ -29,7 +29,7 @@ export function TopActionBar({ quote, grandTotal, onPayClick }: TopActionBarProp
   }
 
   return (
-    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-border">
+    <header id="top-action-bar" className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-[794px] mx-auto px-4 h-16 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <span className="text-lg font-bold text-primary tracking-tight">

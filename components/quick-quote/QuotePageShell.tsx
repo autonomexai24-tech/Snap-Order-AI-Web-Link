@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useIsMobile } from "@/hooks/use-mobile"
 import type { QuotationDocument } from "./types"
 import { MobileLayout } from "./mobile/MobileLayout"
 import { DesktopLayout } from "./desktop/DesktopLayout"
@@ -10,28 +9,35 @@ interface QuotePageShellProps {
   quote: QuotationDocument
 }
 
-export function QuotePageShell({ quote }: QuotePageShellProps) {
-  const isMobile = useIsMobile()
-  // Track whether the hook has measured the viewport yet.
-  // useIsMobile() returns false both on SSR and pre-measurement, so we use
-  // a mounted flag to avoid a flash of the desktop layout on a mobile device.
-  const [mounted, setMounted] = useState(false)
+export function QuotePageShell({ quote: initialQuote }: QuotePageShellProps) {
+  const [quote, setQuote] = useState<QuotationDocument>(initialQuote)
 
   useEffect(() => {
-    setMounted(true)
+    try {
+      const params = new URLSearchParams(window.location.search)
+      const dataParam = params.get('data')
+      if (dataParam) {
+        // Handle Base64 encoded JSON parameter
+        const decodedString = atob(dataParam)
+        const parsedData = JSON.parse(decodedString)
+        if (parsedData && typeof parsedData === 'object') {
+           setQuote(parsedData as QuotationDocument)
+        }
+      }
+    } catch (error) {
+      console.error("Failed to parse dynamic quote data from URL:", error)
+      // On failure, we gracefully fallback to initialQuote
+    }
   }, [])
 
-  if (!mounted) {
-    return (
-      <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-2 border-primary border-t-transparent animate-spin" />
+  return (
+    <>
+      <div className="block lg:hidden">
+        <MobileLayout quote={quote} />
       </div>
-    )
-  }
-
-  return isMobile ? (
-    <MobileLayout quote={quote} />
-  ) : (
-    <DesktopLayout quote={quote} />
+      <div className="hidden lg:block">
+        <DesktopLayout quote={quote} />
+      </div>
+    </>
   )
 }

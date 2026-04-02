@@ -9,61 +9,45 @@ interface DocumentHeaderProps {
 
 export function DocumentHeader({ quote }: DocumentHeaderProps) {
   return (
-    <div className="relative overflow-hidden shrink-0 min-h-[160px] pb-6">
+    <div className="relative shrink-0 min-h-[160px] pb-8 bg-white">
       {/* 
-        Angled Geometric Background 
-        - Deep Navy (#1E3A8A) primary wedge
-        - Vibrant Amber (#F59E0B) secondary peak
+        Simple but Premium Top Border 
+        Instead of a massive block, this provides a sharp, 
+        tailored graphic accent at the very top edge.
       */}
-      <div 
-        className="absolute inset-x-0 top-0 h-[240px] bg-[#F59E0B] z-0" 
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 25%, 0 95%)" }} 
-      />
-      <div 
-        className="absolute inset-x-0 top-0 h-[240px] bg-[#1E3A8A] z-0" 
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 65%, 0 85%)" }} 
-      />
-      
-      {/* Amber Triangles Pattern Overlay */}
-      <svg
-        className="absolute inset-x-0 top-0 h-[240px] w-full z-0 opacity-20 pointer-events-none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ clipPath: "polygon(0 0, 100% 0, 100% 65%, 0 85%)" }}
-      >
-        <defs>
-          <pattern id="amber-triangles" width="40" height="40" patternUnits="userSpaceOnUse">
-            <polygon points="0,40 20,0 40,40" fill="none" stroke="#F59E0B" strokeWidth="1" />
-            <polygon points="0,0 20,40 40,0" fill="none" stroke="#FBBF24" strokeWidth="0.5" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#amber-triangles)" />
-      </svg>
+      <div className="absolute top-0 left-0 w-full h-[18px] flex">
+        <div className="w-[35%] h-full bg-slate-900" />
+        <div 
+          className="w-[25px] h-full bg-slate-900" 
+          style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
+        />
+        <div className="flex-1 h-full bg-orange-500" />
+      </div>
 
       {/* Foreground Content */}
-      <div className="relative z-10 px-10 pt-10 flex items-start justify-between gap-4">
-        {/* Left: Brand Identity in White */}
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2">
-            <span className="text-3xl font-extrabold text-white tracking-tight leading-none">
-              Quotation
-            </span>
-          </div>
-          <p className="text-sm font-medium text-amber-300 mt-1 uppercase tracking-widest">
+      <div className="relative px-12 pt-14 flex items-start justify-between gap-6">
+        {/* Left: Metadata / Brand Tagline */}
+        <div className="flex flex-col gap-1 mt-1">
+          <h2 className="text-sm font-bold text-slate-400 uppercase tracking-[0.2em]">
             Digital Platform
+          </h2>
+          <p className="text-xs font-semibold text-slate-500 mt-0.5 tracking-wider">
+            Reference Document
           </p>
         </div>
 
-        {/* Right: Meta Info (Needs dark contrast since it aligns against the Navy) */}
-        <div className="flex flex-col items-end gap-2 text-white">
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold font-mono tracking-tight text-white drop-shadow-sm">
+        {/* Right: The 'QUOTATION' Hero Title */}
+        <div className="flex flex-col items-end text-right">
+          <h1 className="text-[42px] font-black text-orange-500 tracking-tighter leading-none mb-3">
+            QUOTATION
+          </h1>
+          
+          <div className="flex items-center justify-end gap-3 mt-1">
+            <span className="text-xl font-bold font-mono text-slate-900">
               {quote.documentNumber}
-            </h1>
+            </span>
             <StatusBadge status={quote.status} />
           </div>
-          <p className="text-xs text-blue-200 uppercase tracking-widest font-semibold mt-1">
-            Reference Document
-          </p>
         </div>
       </div>
     </div>

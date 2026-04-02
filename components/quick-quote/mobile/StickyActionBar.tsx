@@ -43,7 +43,7 @@ export function StickyActionBar({ quote, grandTotal }: StickyActionBarProps) {
 
   return (
     <>
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 w-[calc(100%-2rem)] max-w-sm">
+      <div id="mobile-action-bar" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 w-[calc(100%-2rem)] max-w-sm">
         {/* ── Glassmorphic Action Bar ── */}
         <div className="bg-white/80 backdrop-blur-md border border-white/50 shadow-sm rounded-[2rem] p-1.5 flex items-center gap-2">
           

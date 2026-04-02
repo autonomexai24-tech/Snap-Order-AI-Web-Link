@@ -94,3 +94,40 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Stage 6: Production Print Refinement ── */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    background-image: none !important;
+  }
+  
+  #desktop-page-atmosphere {
+    background: none !important;
+    min-height: auto !important;
+  }
+  
+  #desktop-paper-stage {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  #desktop-a4-paper {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    min-height: auto !important;
+  }
+  
+  /* Hide all generic interactive web elements */
+  #top-action-bar,
+  #mobile-action-bar,
+  header.sticky,
+  button,
+  .no-print {
+    display: none !important;
+  }
+}

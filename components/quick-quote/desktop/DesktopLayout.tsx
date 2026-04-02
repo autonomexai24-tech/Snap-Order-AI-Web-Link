@@ -31,7 +31,6 @@ import { TotalsBlock } from "./TotalsBlock"
 import { BankDetailsBlock } from "./BankDetailsBlock"
 import { NotesFooter } from "./NotesFooter"
 import { UpiQrModal } from "./UpiQrModal"
-import { GeometricSidebar } from "./GeometricSidebar"
 import { SignatureBlock } from "../shared/SignatureBlock"
 
 interface DesktopLayoutProps {
@@ -95,10 +94,7 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
             overflow: "hidden",
           }}
         >
-          {/* Emerald geometric accent sidebar */}
-          <GeometricSidebar height="100%" />
-
-          {/* Paper content — offset from sidebar */}
+          {/* Paper content */}
           <div
             id="desktop-paper-content"
             style={{

@@ -59,21 +59,21 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
   ]
 
   return (
-    <div className="flex justify-end mt-4 mb-2">
+    <div className="flex justify-end mt-2 mb-2">
       <div className="w-full max-w-[420px] flex flex-col items-end">
         {/* Upper details (Right aligned, clean typography) */}
-        <div className="w-full flex flex-col gap-3 mb-4 pr-1">
+        <div className="w-full flex flex-col gap-3 mb-6 pr-4">
           {rows.map((row) => (
             <div
               key={row.label}
-              className="flex items-center justify-between px-3"
+              className="flex items-center justify-between"
             >
               <span
                 className={[
                   "text-[12px] tracking-widest",
                   row.isMuted
                     ? "text-slate-400 font-semibold uppercase"
-                    : "text-[#1E3A8A] font-bold uppercase",
+                    : "text-slate-900 font-bold uppercase",
                 ].join(" ")}
               >
                 {row.label}
@@ -84,8 +84,8 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
                   row.isNegative
                     ? "text-red-500 font-bold"
                     : row.isMuted
-                    ? "text-slate-600 font-medium"
-                    : "font-bold text-[#1E3A8A]",
+                    ? "text-slate-500 font-medium"
+                    : "font-bold text-slate-900",
                 ].join(" ")}
               >
                 {row.value}
@@ -95,14 +95,14 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
         </div>
 
         {/* 
-          Full-width Amber color-block for the Grand Total 
-          Deep Navy text for extreme contrast and readability
+          Full-width Orange color-block for the Grand Total 
+          Pure White text for premium contrast
         */}
-        <div className="w-full bg-[#F59E0B] shadow-xl flex items-center justify-between px-6 py-6 -mr-6">
-          <span className="text-[15px] font-extrabold text-[#1E3A8A] uppercase tracking-[0.15em] drop-shadow-sm">
+        <div className="w-full bg-orange-500 shadow-lg flex items-center justify-between px-6 py-6 -mr-6 rounded-l-sm">
+          <span className="text-[14px] font-extrabold text-white uppercase tracking-[0.15em] drop-shadow-sm">
             Total Due
           </span>
-          <span className="text-2xl tabular-nums font-mono font-extrabold text-[#1E3A8A] drop-shadow-md">
+          <span className="text-2xl tabular-nums font-mono font-extrabold text-white drop-shadow-md">
             {formatINR(totals.grandTotal)}
           </span>
         </div>
