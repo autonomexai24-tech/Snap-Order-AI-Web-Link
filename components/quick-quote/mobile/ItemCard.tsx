@@ -20,12 +20,9 @@ interface ItemCardProps {
 export function ItemCard({ item, index }: ItemCardProps) {
   const lineTotal = calcLineTotal(item)
 
-  // Alternating background for the "Ghost Row" striped table look
-  const bgClass = index % 2 === 0 ? "bg-white" : "bg-orange-50/30"
-
   return (
     <div
-      className={`${bgClass} px-6 py-4 flex items-start justify-between border-b border-orange-100/50 cursor-default select-none transition-colors active:bg-orange-100/50`}
+      className="bg-white px-6 py-4 flex items-start justify-between border-b border-slate-100 cursor-default select-none transition-colors"
       role="listitem"
     >
       <div className="flex flex-col gap-1 flex-1 pr-4">
@@ -33,18 +30,18 @@ export function ItemCard({ item, index }: ItemCardProps) {
           {item.description}
         </p>
         <p className="text-xs font-medium text-slate-500 flex items-center gap-1.5">
-          <span className="tabular-nums">
+          <span className="tabular-nums font-mono">
             {item.qty.toLocaleString("en-IN")} {item.unit}
           </span>
           <span className="text-slate-300">×</span>
-          <span className="tabular-nums text-slate-400">
+          <span className="tabular-nums font-mono text-slate-400">
             {formatINR(item.rate)}
           </span>
         </p>
       </div>
 
       <div className="flex-shrink-0 text-right pt-0.5">
-        <p className="text-base font-bold tabular-nums text-emerald-600">
+        <p className="text-sm font-bold font-mono tabular-nums text-slate-900">
           {formatINR(lineTotal)}
         </p>
       </div>

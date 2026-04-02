@@ -66,13 +66,12 @@ export function StickyActionBar({ quote, grandTotal }: StickyActionBarProps) {
             </button>
           </div>
 
-          {/* Emerald Pill CTA */}
+          {/* Slate-900 Pill CTA */}
           <button
             id="sticky-pay-btn"
             type="button"
             onClick={() => setIsDrawerOpen(true)}
-            className="flex-1 h-[48px] rounded-full font-bold text-sm tracking-wide flex items-center justify-center text-white active:scale-95 transition-all overflow-hidden"
-            style={{ backgroundColor: "#10B981" }}
+            className="flex-1 h-[48px] rounded-full font-bold text-sm tracking-wide flex items-center justify-center text-white active:scale-95 transition-all overflow-hidden bg-slate-900 hover:bg-slate-800 shadow-md"
           >
             Pay Now {formatINR(grandTotal)}
           </button>

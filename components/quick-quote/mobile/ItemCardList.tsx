@@ -21,14 +21,18 @@ export function ItemCardList({ items }: ItemCardListProps) {
   return (
     <section aria-label="Line items" className="mt-2 text-slate-800">
       
-      {/* Pseudo-Header to mimic desktop invoice ledger on mobile */}
-      <div className="flex items-center justify-between px-6 py-2 bg-slate-100 rounded-t-[1.5rem] mt-4 mb-2">
-        <span className="text-xs uppercase tracking-widest font-bold text-slate-500">
-          Item Description
-        </span>
-        <span className="text-xs uppercase tracking-widest font-bold text-slate-500">
-          Amount
-        </span>
+      {/* Pseudo-Header: Split Colorway Mimicking Desktop */}
+      <div className="flex px-4 pt-4 pb-2">
+        <div className="flex items-center px-4 py-2.5 bg-slate-900 rounded-l-md flex-1">
+          <span className="text-[10px] uppercase tracking-widest font-bold text-white">
+            Item Description
+          </span>
+        </div>
+        <div className="flex items-center justify-end px-4 py-2.5 bg-orange-500 rounded-r-md min-w-[100px]">
+          <span className="text-[10px] uppercase tracking-widest font-bold text-white">
+            Amount
+          </span>
+        </div>
       </div>
 
       {/* Item rows sitting flush together */}
