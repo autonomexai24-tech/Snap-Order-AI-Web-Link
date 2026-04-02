@@ -19,7 +19,7 @@ interface TotalBannerMobileProps {
  */
 export function TotalBannerMobile({ totals, onViewGST }: TotalBannerMobileProps) {
   return (
-    <div className="-mx-4 mt-8 flex flex-col mb-4 bg-slate-100">
+    <div className="mt-8 mb-4 flex flex-col bg-slate-100 w-[calc(100%+2rem)] -ml-4">
       
       {/* Breakdown lines - Slate-900 Block */}
       <div className="flex flex-col gap-3 px-6 pt-8 pb-6 bg-slate-900">

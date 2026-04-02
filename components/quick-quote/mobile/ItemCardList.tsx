@@ -22,7 +22,7 @@ export function ItemCardList({ items }: ItemCardListProps) {
     <section aria-label="Line items" className="mt-2 text-slate-800">
       
       {/* Pseudo-Header: Split Colorway Mimicking Desktop */}
-      <div className="flex px-4 pt-4 pb-2">
+      <div className="flex w-full px-4 pt-4 pb-2">
         <div className="flex items-center px-4 py-2.5 bg-slate-900 rounded-l-md flex-1">
           <span className="text-[10px] uppercase tracking-widest font-bold text-white">
             Item Description

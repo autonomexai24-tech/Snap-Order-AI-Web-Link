@@ -20,7 +20,7 @@ export function MobileLayout({ quote }: MobileLayoutProps) {
   const totals = computeTotals(quote.items, quote.discount, quote.isInterState)
 
   return (
-    <div className="min-h-screen bg-neutral-50 pb-32">
+    <div className="min-h-screen bg-neutral-50 pb-32 w-full max-w-[100vw] overflow-x-hidden relative">
       <MobileHeader quote={quote} />
 
       <div className="flex flex-col gap-4 px-4 pt-4">

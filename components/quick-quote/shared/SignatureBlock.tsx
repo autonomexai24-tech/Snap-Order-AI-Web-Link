@@ -21,7 +21,7 @@ export function SignatureBlock({
   className = "",
 }: SignatureBlockProps) {
   return (
-    <div className={`relative flex flex-col items-end pt-12 ${className}`}>
+    <div className={`relative flex flex-col items-end pt-12 overflow-hidden ${className}`}>
       
       {/* Background Watermark Stamp */}
       <div 
