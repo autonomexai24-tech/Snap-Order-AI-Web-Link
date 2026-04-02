@@ -59,34 +59,33 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
   ]
 
   return (
-    <div className="flex justify-end mt-2">
-      {/* Container max-w matching GSTBreakupTable or slightly tighter, flush to right edge natively or fixed width. Let's fix width. */}
-      <div className="w-full max-w-[420px] border border-border bg-white flex flex-col">
-        {/* Upper details */}
-        <div className="flex flex-col divide-y divide-border">
+    <div className="flex justify-end mt-4 mb-2">
+      <div className="w-full max-w-[420px] flex flex-col items-end">
+        {/* Upper details (Right aligned, clean typography) */}
+        <div className="w-full flex flex-col gap-3 mb-4 pr-1">
           {rows.map((row) => (
             <div
               key={row.label}
-              className="flex items-center justify-between px-6 py-2.5 bg-white"
+              className="flex items-center justify-between px-3"
             >
               <span
                 className={[
-                  "text-[13px] tracking-wide",
+                  "text-[12px] tracking-widest",
                   row.isMuted
-                    ? "text-muted-foreground font-medium"
-                    : "text-slate-700 font-semibold uppercase",
+                    ? "text-slate-400 font-semibold uppercase"
+                    : "text-[#1E3A8A] font-bold uppercase",
                 ].join(" ")}
               >
                 {row.label}
               </span>
               <span
                 className={[
-                  "text-sm tabular-nums font-mono",
+                  "text-[15px] tabular-nums font-mono drop-shadow-sm",
                   row.isNegative
-                    ? "text-red-600 font-semibold"
+                    ? "text-red-500 font-bold"
                     : row.isMuted
-                    ? "text-muted-foreground font-medium"
-                    : "font-semibold text-slate-900",
+                    ? "text-slate-600 font-medium"
+                    : "font-bold text-[#1E3A8A]",
                 ].join(" ")}
               >
                 {row.value}
@@ -95,12 +94,15 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
           ))}
         </div>
 
-        {/* Full-width Emerald Green color-block for the Grand Total */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#059669] text-white">
-          <span className="text-[14px] font-bold uppercase tracking-widest">
-            Grand Total
+        {/* 
+          Full-width Amber color-block for the Grand Total 
+          Deep Navy text for extreme contrast and readability
+        */}
+        <div className="w-full bg-[#F59E0B] shadow-xl flex items-center justify-between px-6 py-6 -mr-6">
+          <span className="text-[15px] font-extrabold text-[#1E3A8A] uppercase tracking-[0.15em] drop-shadow-sm">
+            Total Due
           </span>
-          <span className="text-xl tabular-nums font-mono font-bold text-emerald-50">
+          <span className="text-2xl tabular-nums font-mono font-extrabold text-[#1E3A8A] drop-shadow-md">
             {formatINR(totals.grandTotal)}
           </span>
         </div>

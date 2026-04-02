@@ -75,7 +75,7 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
         {/* A4 Paper ─ 794px = 210mm @ 96 dpi */}
         <article
           id="desktop-a4-paper"
-          aria-label={"Quotation " + quote.quoteNumber}
+          aria-label={"Quotation " + quote.documentNumber}
           style={{
             position: "relative",
             maxWidth: "794px",
@@ -102,10 +102,11 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
           <div
             id="desktop-paper-content"
             style={{
-              marginLeft: "14px", /* sidebar width */
               display: "flex",
               flexDirection: "column",
               height: "100%",
+              position: "relative",
+              zIndex: 10,
             }}
           >
             {/* Document header (logo + quote number) */}
@@ -136,8 +137,10 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
               </div>
 
               <BankDetailsBlock bankDetails={quote.bankDetails} />
-              <NotesFooter notes={quote.notes} terms={quote.termsAndConditions} />
-              <SignatureBlock className="self-end mt-4 mb-8" signatureName={quote.seller.name} />
+              <SignatureBlock 
+                className="self-end mt-4 mb-8" 
+                signatureName={quote.authorizedSignatory.name} 
+              />
             </div>
 
             {/* Paper footer — page reference strip */}
@@ -161,7 +164,7 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
                   textTransform: "uppercase",
                 }}
               >
-                {quote.quoteNumber} — Quotation Document
+                {quote.documentNumber} — Quotation Document
               </span>
               <span
                 style={{
@@ -184,7 +187,7 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
         upiId={quote.upiId}
         upiName={quote.upiName}
         amount={totals.grandTotal}
-        txnRef={quote.quoteNumber}
+        txnRef={quote.documentNumber}
       />
     </div>
   )

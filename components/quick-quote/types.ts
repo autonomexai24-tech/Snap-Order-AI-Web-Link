@@ -63,6 +63,10 @@ export interface QuotationDocument {
   bankDetails: BankDetails
   upiId: string
   upiName: string
+  authorizedSignatory: {
+    name: string
+    title: string
+  }
 }
 
 /** @deprecated Use QuotationDocument */

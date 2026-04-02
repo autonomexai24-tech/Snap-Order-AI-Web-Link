@@ -1,52 +1,67 @@
+"use client"
+
+import { useId } from "react"
+
 /**
- * GeometricSidebar — Desktop Specialist
+ * GeometricSidebar — Desktop Identity Block (Navy & Amber standard)
  *
- * Decorative emerald geometric accent strip for the A4 document left edge.
- * Renders a repeating SVG pattern of triangles + diamonds in Slate & Emerald tones.
- * Width: 14px (print edge). Hidden on @media print.
+ * Implements a wide, subtle repeating geometric watermark representing the
+ * brand identity. Blended using mask-image over a Navy background.
+ * Hidden on @media print.
  */
 
 interface GeometricSidebarProps {
-  height?: number | string
+  width?: string | number
+  height?: string | number
 }
 
-/** Emerald & Slate palette */
+// Navy & Amber Tokens
 const COLORS = {
-  emeraldDeep:   "#065F46", // --emerald-900
-  emeraldMid:    "#059669", // --emerald-600
-  emeraldLight:  "#34D399", // --emerald-400
-  emeraldFaint:  "#A7F3D0", // --emerald-200
-  slateDark:     "#0F172A", // --slate-900
-  slateAccent:   "#1E293B", // --slate-800
+  navy: "#1E3A8A",
+  amberVibrant: "#F59E0B",
+  amberDeep: "#B45309",
+  amberFaint: "#FDE68A",
 }
 
-export function GeometricSidebar({ height = "100%" }: GeometricSidebarProps) {
-  const patternId = "geo-sidebar-pattern"
-  const cellH = 28  // height of one repeating cell
-  const cellW = 14  // sidebar width
+export function GeometricSidebar({
+  width = "160px",
+  height = "100%",
+}: GeometricSidebarProps) {
+  const patternId = useId() + "-geo-pattern"
+  
+  // Define a larger, structured cell for the premium repeating pattern
+  const cellW = 80
+  const cellH = 120
 
   return (
     <div
       aria-hidden="true"
-      className="geometric-sidebar"
+      className="hidden md:block select-none"
       style={{
         position: "absolute",
         top: 0,
         left: 0,
-        width: cellW,
+        width: width,
         height: height,
         overflow: "hidden",
         flexShrink: 0,
-        // Hidden on print
+        zIndex: 0, // Sit behind the absolute paper body foreground
+        backgroundColor: COLORS.navy, // Deep Navy base
+        // Create an elegant fade from the Navy edge fading out into transparency
+        maskImage: "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)",
+        WebkitMaskImage: "linear-gradient(to right, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%)",
+        pointerEvents: "none",
         printColorAdjust: "exact",
         WebkitPrintColorAdjust: "exact",
+        borderTopLeftRadius: "0.5rem",
+        borderBottomLeftRadius: "0.5rem",
       }}
     >
       <svg
-        width={cellW}
+        width="100%"
         height="100%"
         xmlns="http://www.w3.org/2000/svg"
-        style={{ display: "block", width: "100%", height: "100%" }}
+        style={{ display: "block", mixBlendMode: "screen", opacity: 0.2 }}
       >
         <defs>
           <pattern
@@ -57,55 +72,39 @@ export function GeometricSidebar({ height = "100%" }: GeometricSidebarProps) {
             height={cellH}
             patternUnits="userSpaceOnUse"
           >
-            {/* Base fill — deep emerald */}
-            <rect x={0} y={0} width={cellW} height={cellH} fill={COLORS.emeraldDeep} />
-
-            {/* Top triangle — dark slate pointing right */}
+            {/* Primary Diamond - Vibrant Amber */}
             <polygon
-              points={`0,0 ${cellW},0 0,${cellH * 0.45}`}
-              fill={COLORS.slateDark}
-              opacity="0.55"
-            />
-
-            {/* Mid diamond — mid emerald */}
-            <polygon
-              points={`${cellW / 2},${cellH * 0.3} ${cellW},${cellH * 0.52} ${cellW / 2},${cellH * 0.74} 0,${cellH * 0.52}`}
-              fill={COLORS.emeraldMid}
-              opacity="0.7"
-            />
-
-            {/* Small accent dot — emerald light */}
-            <circle
-              cx={cellW / 2}
-              cy={cellH * 0.52}
-              r={1.8}
-              fill={COLORS.emeraldLight}
+              points={`${cellW / 2},10 ${cellW - 10},${cellH / 2} ${cellW / 2},${cellH - 10} 10,${cellH / 2}`}
+              stroke={COLORS.amberVibrant}
+              strokeWidth="2"
+              fill="none"
               opacity="0.9"
             />
-
-            {/* Bottom-right triangle — faint emerald */}
+            {/* Inner Solid Triangle */}
             <polygon
-              points={`${cellW},${cellH * 0.6} ${cellW},${cellH} 0,${cellH}`}
-              fill={COLORS.slateAccent}
-              opacity="0.45"
+              points={`${cellW / 2},30 ${cellW - 30},${cellH / 2} 30,${cellH / 2}`}
+              fill={COLORS.amberDeep}
+              opacity="0.6"
             />
-
-            {/* Edge shimmer line */}
-            <line
-              x1={cellW - 1}
-              y1={0}
-              x2={cellW - 1}
-              y2={cellH}
-              stroke={COLORS.emeraldLight}
-              strokeWidth="0.5"
-              opacity="0.4"
+            {/* Base Floating Accent Dot */}
+            <circle
+              cx={cellW / 2}
+              cy={cellH - 30}
+              r="3"
+              fill={COLORS.amberFaint}
+              opacity="1.0"
             />
+            {/* Connecting Mesh Lines */}
+            <line x1={cellW / 2} y1={0} x2={cellW / 2} y2={10} stroke={COLORS.amberDeep} strokeWidth="1" />
+            <line x1={cellW / 2} y1={cellH - 10} x2={cellW / 2} y2={cellH} stroke={COLORS.amberDeep} strokeWidth="1" />
+            <line x1={0} y1={cellH / 2} x2={10} y2={cellH / 2} stroke={COLORS.amberDeep} strokeWidth="1" />
+            <line x1={cellW - 10} y1={cellH / 2} x2={cellW} y2={cellH / 2} stroke={COLORS.amberDeep} strokeWidth="1" />
           </pattern>
         </defs>
 
         <rect
-          x={0}
-          y={0}
+          x="0"
+          y="0"
           width="100%"
           height="100%"
           fill={`url(#${patternId})`}

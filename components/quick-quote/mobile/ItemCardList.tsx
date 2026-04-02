@@ -9,72 +9,41 @@ interface ItemCardListProps {
 }
 
 /**
- * ItemCardList — Premium Receipt style (Mobile Specialist v2)
+ * ItemCardList — Focuses on the "Ghost Row" table approach visually.
  *
  * Design principles:
- * - Hairline 1px dividers between rows, NOT around the section block
- * - Section label: ultra-light overline — emerald dot + "ITEMS (n)" in slate-500
- * - No cards, no shadows → the list breathes like a Michelin receipt
- * - Subtotal row pinned at bottom — slate text | emerald amount
+ * - Flush alignment to allow alternating stripes in child components.
+ * - Bold 'Item Description' and 'Amount' pseudo-header mimicking the visual reference.
  */
 export function ItemCardList({ items }: ItemCardListProps) {
   const subtotal = items.reduce((sum, item) => sum + calcLineTotal(item), 0)
 
   return (
-    <section aria-label="Line items">
-      {/* Overline header */}
-      <div className="flex items-center gap-1.5 mb-1" aria-hidden="true">
-        <span
-          className="w-1.5 h-1.5 rounded-full"
-          style={{ backgroundColor: "var(--emerald-500, #10b981)" }}
-        />
-        <h2
-          className="text-[10px] font-semibold uppercase tracking-[0.18em]"
-          style={{ color: "var(--slate-400, #94a3b8)" }}
-        >
-          Items ({items.length})
-        </h2>
+    <section aria-label="Line items" className="mt-2 text-slate-800">
+      
+      {/* Pseudo-Header to mimic desktop invoice ledger on mobile */}
+      <div className="flex items-center justify-between px-6 py-2 bg-slate-100 rounded-t-[1.5rem] mt-4 mb-2">
+        <span className="text-xs uppercase tracking-widest font-bold text-slate-500">
+          Item Description
+        </span>
+        <span className="text-xs uppercase tracking-widest font-bold text-slate-500">
+          Amount
+        </span>
       </div>
 
-      {/* Hairline top edge */}
-      <div
-        className="w-full h-px"
-        style={{ backgroundColor: "var(--slate-100, #f1f5f9)" }}
-        aria-hidden="true"
-      />
-
-      {/* Item rows — separated by hairlines */}
-      <div role="list">
+      {/* Item rows sitting flush together */}
+      <div role="list" className="flex flex-col rounded-b-xl overflow-hidden shadow-sm border border-slate-100 bg-white">
         {items.map((item, index) => (
-          <div key={item.id}>
-            <ItemCard item={item} index={index} />
-            {/* Hairline divider — skips after the last item */}
-            {index < items.length - 1 && (
-              <div
-                className="w-full h-px"
-                style={{ backgroundColor: "var(--slate-100, #f1f5f9)" }}
-                aria-hidden="true"
-              />
-            )}
-          </div>
+          <ItemCard key={item.id} item={item} index={index} />
         ))}
       </div>
 
-      {/* Subtotal footer row */}
-      <div
-        className="flex items-center justify-between pt-3 pb-1 border-t"
-        style={{ borderColor: "var(--slate-200, #e2e8f0)" }}
-      >
-        <span
-          className="text-xs font-medium uppercase tracking-widest"
-          style={{ color: "var(--slate-400, #94a3b8)" }}
-        >
+      {/* Basic subtotal line before the big banner handles the Grand Total */}
+      <div className="flex items-center justify-between px-6 mt-4 pt-4 border-t border-slate-200">
+        <span className="text-sm font-semibold uppercase tracking-widest text-slate-500">
           Subtotal
         </span>
-        <span
-          className="text-sm font-bold tabular-nums"
-          style={{ color: "var(--slate-700, #334155)" }}
-        >
+        <span className="text-sm font-bold tabular-nums text-slate-800">
           {new Intl.NumberFormat("en-IN", {
             style: "currency",
             currency: "INR",

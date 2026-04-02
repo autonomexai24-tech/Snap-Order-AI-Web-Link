@@ -32,7 +32,7 @@ export function MobileLayout({ quote }: MobileLayoutProps) {
         />
 
         {/* Authorized Signatory Space */}
-        <SignatureBlock className="mt-8 mb-6 pr-2" signatureName={quote.seller.name} />
+        <SignatureBlock className="mt-8 mb-6 pr-2" signatureName={quote.authorizedSignatory.name} />
       </div>
 
       <StickyActionBar

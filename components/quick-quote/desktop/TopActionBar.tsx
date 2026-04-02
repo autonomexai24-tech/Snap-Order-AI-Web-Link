@@ -3,10 +3,10 @@
 import { Download, Share2, Printer, QrCode } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { formatINR } from "../utils"
-import type { Quote } from "../types"
+import type { QuotationDocument } from "../types"
 
 interface TopActionBarProps {
-  quote: Quote
+  quote: QuotationDocument
   grandTotal: number
   onPayClick: () => void
 }
@@ -15,7 +15,7 @@ export function TopActionBar({ quote, grandTotal, onPayClick }: TopActionBarProp
   function handleShare() {
     if (navigator.share) {
       navigator.share({
-        title: "Quote " + quote.quoteNumber,
+        title: "Quote " + quote.documentNumber,
         text: "Review your quotation from " + quote.seller.name,
         url: window.location.href,
       })
@@ -37,7 +37,7 @@ export function TopActionBar({ quote, grandTotal, onPayClick }: TopActionBarProp
           </span>
           <div className="h-4 w-px bg-border" aria-hidden="true" />
           <span className="text-sm text-muted-foreground font-mono">
-            {quote.quoteNumber}
+            {quote.documentNumber}
           </span>
         </div>
 

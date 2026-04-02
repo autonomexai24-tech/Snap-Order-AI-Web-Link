@@ -20,25 +20,22 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
 
   return (
     <div>
-      <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-3">
-        Line Items
-      </h2>
       {/* 
-        Professional Data Grid 
-        Sharp border, no radius.
+        Professional Print Data Grid 
+        NO vertical borders.
       */}
-      <div className="border border-border">
+      <div className="w-full">
         <Table>
-          <TableHeader className="bg-slate-900 overflow-hidden">
-            <TableRow className="hover:bg-slate-900 border-none">
-              <TableHead className="w-8 text-center text-[11px] text-white uppercase tracking-widest font-semibold py-3 h-auto">#</TableHead>
-              <TableHead className="text-[11px] text-white uppercase tracking-widest font-semibold py-3 h-auto">Description</TableHead>
-              <TableHead className="text-[11px] text-zinc-300 uppercase tracking-widest font-mono py-3 h-auto">HSN Code</TableHead>
-              <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-semibold py-3 h-auto">Qty</TableHead>
-              <TableHead className="text-[11px] text-white uppercase tracking-widest font-semibold py-3 h-auto">Unit</TableHead>
-              <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-semibold py-3 h-auto">Rate (&#8377;)</TableHead>
-              <TableHead className="text-right text-[11px] text-zinc-300 uppercase tracking-widest font-semibold py-3 h-auto">GST %</TableHead>
-              <TableHead className="text-right text-[11px] text-emerald-300 uppercase tracking-widest font-bold py-3 h-auto">Amount (&#8377;)</TableHead>
+          <TableHeader className="bg-[#1E3A8A]">
+            <TableRow className="hover:bg-[#1E3A8A] border-none">
+              <TableHead className="w-10 text-center text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto">SN</TableHead>
+              <TableHead className="text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto">Description</TableHead>
+              <TableHead className="text-[11px] text-blue-200 uppercase tracking-widest font-mono py-3.5 h-auto">HSN Code</TableHead>
+              <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto">Qty</TableHead>
+              <TableHead className="text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto ml-2">Unit</TableHead>
+              <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto">Rate (&#8377;)</TableHead>
+              <TableHead className="text-right text-[11px] text-blue-200 uppercase tracking-widest font-bold py-3.5 h-auto">GST</TableHead>
+              <TableHead className="text-right text-[11px] text-[#F59E0B] uppercase tracking-widest font-extrabold py-3.5 h-auto pr-4">Total</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -47,30 +44,33 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
               return (
                 <TableRow
                   key={item.id}
-                  className={index % 2 === 1 ? "bg-[#F8FAFC] border-b border-border" : "bg-white border-b border-border"}
+                  className={[
+                    "border-b border-slate-100", 
+                    index % 2 === 1 ? "bg-[#FEF3C7]/50" : "bg-white" // Amber Ghost Row
+                  ].join(" ")}
                 >
-                  <TableCell className="text-center text-xs text-muted-foreground w-8 py-4">
-                    {index + 1}
+                  <TableCell className="text-center text-xs text-slate-400 w-10 py-4 font-mono">
+                    {String(index + 1).padStart(2, '0')}
                   </TableCell>
-                  <TableCell className="font-medium text-sm max-w-[220px] py-4">
+                  <TableCell className="font-bold text-sm text-[#1E3A8A] max-w-[220px] py-4">
                     {item.description}
                   </TableCell>
-                  <TableCell className="font-mono text-xs text-muted-foreground py-4">
+                  <TableCell className="font-mono text-xs text-slate-500 py-4">
                     {item.hsnCode}
                   </TableCell>
-                  <TableCell className="text-right text-sm tabular-nums py-4 font-mono font-medium">
+                  <TableCell className="text-right text-sm tabular-nums py-4 font-mono font-medium text-slate-700">
                     {item.qty.toLocaleString("en-IN")}
                   </TableCell>
-                  <TableCell className="text-xs text-muted-foreground py-4">
+                  <TableCell className="text-xs text-slate-500 py-4 font-mono pl-2">
                     {item.unit}
                   </TableCell>
-                  <TableCell className="text-right text-sm tabular-nums py-4 font-mono font-medium">
+                  <TableCell className="text-right text-[15px] tabular-nums py-4 font-mono font-bold text-[#1E3A8A]">
                     {formatINR(item.rate)}
                   </TableCell>
-                  <TableCell className="text-right text-xs text-muted-foreground py-4 font-mono">
+                  <TableCell className="text-right text-[11px] text-slate-500 py-4 font-mono font-medium">
                     {item.gstRate}%
                   </TableCell>
-                  <TableCell className="text-right text-sm font-semibold tabular-nums py-4 font-mono">
+                  <TableCell className="text-right text-[15px] tabular-nums py-4 pr-4 font-mono font-extrabold text-[#1E3A8A]">
                     {formatINR(lineTotal)}
                   </TableCell>
                 </TableRow>
@@ -78,11 +78,11 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
             })}
           </TableBody>
         </Table>
-        {/* Bold Subtotal Footer Bar */}
-        <div className="flex justify-end px-5 py-3.5 bg-[#F1F5F9] border-t-2 border-border">
+        {/* Clean Subtotal Footer Bar */}
+        <div className="flex justify-end px-5 py-4 bg-slate-50 border-b border-slate-200">
           <div className="flex items-center gap-8">
-            <span className="text-[13px] font-semibold text-slate-700 uppercase tracking-widest">Subtotal</span>
-            <span className="text-[15px] font-bold tabular-nums w-32 text-right font-mono text-slate-900">
+            <span className="text-[12px] font-bold text-[#1E3A8A] uppercase tracking-widest">Subtotal</span>
+            <span className="text-[16px] font-extrabold tabular-nums w-32 text-right font-mono text-[#1E3A8A]">
               {formatINR(subTotal)}
             </span>
           </div>

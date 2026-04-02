@@ -1,10 +1,10 @@
 "use client"
 
 import { formatDate } from "../utils"
-import type { Quote } from "../types"
+import type { QuotationDocument } from "../types"
 
 interface QuoteMetaProps {
-  quote: Quote
+  quote: QuotationDocument
 }
 
 export function QuoteMeta({ quote }: QuoteMetaProps) {

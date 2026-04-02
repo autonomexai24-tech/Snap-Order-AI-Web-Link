@@ -110,6 +110,10 @@ export const MOCK_DOCUMENTS: Record<string, QuotationDocument> = {
 
     upiId: "bharatsteel@okaxis",
     upiName: "Bharat Steel & Hardware",
+    authorizedSignatory: {
+      name: "Ashok Mehra",
+      title: "Director - Sales & Operations"
+    }
   },
 
   "demo": {
@@ -208,6 +212,10 @@ export const MOCK_DOCUMENTS: Record<string, QuotationDocument> = {
 
     upiId: "bharatsteel@okaxis",
     upiName: "Bharat Steel & Hardware",
+    authorizedSignatory: {
+      name: "Ashok Mehra",
+      title: "Director - Sales & Operations"
+    }
   },
 }
 

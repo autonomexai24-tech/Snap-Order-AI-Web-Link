@@ -1,14 +1,13 @@
 /**
  * /app/preview/geometric-sidebar/page.tsx
  * Foundation verification page — NOT for production use.
- * Lets the browser sub-agent visually confirm the GeometricSidebar looks
- * "Classic Corporate" and professional before the Desktop/Mobile agents proceed.
+ * Lets the browser sub-agent visually confirm the Emerald Identity Block
  */
-import { GeometricSidebar, GeometricPattern } from "@/components/quick-quote/shared/GeometricSidebar"
+import { GeometricSidebar } from "@/components/quick-quote/desktop/GeometricSidebar"
 
 export const metadata = {
-  title: "GeometricSidebar Preview — Foundation Verification",
-  description: "Visual UAT page for the Premium Slate & Emerald sidebar pattern.",
+  title: "Emerald Identity Block Preview",
+  description: "Visual UAT page for the Premium Slate & Emerald watermark pattern.",
 }
 
 export default function GeometricSidebarPreviewPage() {
@@ -21,7 +20,6 @@ export default function GeometricSidebarPreviewPage() {
         padding: "40px",
       }}
     >
-      {/* ── Page Header ── */}
       <div style={{ marginBottom: "40px" }}>
         <h1
           style={{
@@ -32,14 +30,13 @@ export default function GeometricSidebarPreviewPage() {
             margin: 0,
           }}
         >
-          Foundation Verification · GeometricSidebar
+          Foundation Verification · Emerald Identity Block
         </h1>
         <p style={{ fontSize: "13px", color: "#64748B", marginTop: "6px" }}>
-          Premium Slate &amp; Emerald Geometric Quotation — visual UAT
+          Premium Obsidian &amp; Emerald Watermark — visual UAT
         </p>
       </div>
 
-      {/* ── Demo 1: Sidebar in context (simulated document card) ── */}
       <section style={{ marginBottom: "40px" }}>
         <h2
           style={{
@@ -51,96 +48,45 @@ export default function GeometricSidebarPreviewPage() {
             marginBottom: "16px",
           }}
         >
-          Demo 1 — 72 px Compact Accent Strip (Desktop)
+          Demo — Absolute Watermark Insertion 
         </h2>
+        
+        {/* Simulated Document Paper */}
         <div
           style={{
-            display: "flex",
-            height: "420px",
-            borderRadius: "6px",
+            position: "relative",
+            width: "800px",
+            height: "500px",
+            borderRadius: "0.5rem", // 8px rule enforced
             overflow: "hidden",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-            border: "1px solid #E2E8F0",
+            boxShadow: "0 8px 32px rgba(15,23,42,0.12)",
+            background: "#F1F5F9", /* Soft Slate/Parchment */
+            border: "none", /* Zero borders rule */
           }}
         >
-          {/* Sidebar */}
-          <GeometricSidebar
-            label="QUOTATION"
-            subLabel="PRQ-2025-047"
-            width={72}
-          />
-          {/* Simulated document body */}
+          {/* Identity Block */}
+          <GeometricSidebar width="200px" height="100%" />
+          
+          {/* Simulated content stacking on top */}
           <div
             style={{
-              flex: 1,
-              background: "#FFFFFF",
-              padding: "32px",
+              position: "relative",
+              zIndex: 10,
+              padding: "48px 40px",
               display: "flex",
               flexDirection: "column",
-              gap: "16px",
+              gap: "24px",
             }}
           >
-            <div style={{ height: 20, width: "60%", background: "#F1F5F9", borderRadius: 4 }} />
-            <div style={{ height: 14, width: "80%", background: "#F1F5F9", borderRadius: 4 }} />
-            <div style={{ height: 14, width: "40%", background: "#F1F5F9", borderRadius: 4 }} />
-            <div style={{ marginTop: 16, height: 80, background: "#F8FAFC", borderRadius: 4, border: "1px solid #E2E8F0" }} />
-            <div style={{ height: 14, width: "70%", background: "#F1F5F9", borderRadius: 4 }} />
-            <div style={{ height: 14, width: "50%", background: "#F1F5F9", borderRadius: 4 }} />
+            <div style={{ paddingLeft: "100px" }}>
+              <div style={{ height: 28, width: "30%", background: "#0F172A", borderRadius: "0.5rem" }} />
+              <div style={{ marginTop: 12, height: 16, width: "15%", background: "#10B981", borderRadius: "0.5rem" }} />
+              
+              <div style={{ marginTop: 40, height: 120, background: "#FFFFFF", borderRadius: "0.5rem", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }} />
+              <div style={{ marginTop: 24, height: 16, width: "70%", background: "#E2E8F0", borderRadius: "0.5rem" }} />
+              <div style={{ marginTop: 12, height: 16, width: "50%", background: "#E2E8F0", borderRadius: "0.5rem" }} />
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── Demo 2: Wider sidebar ── */}
-      <section style={{ marginBottom: "40px" }}>
-        <h2
-          style={{
-            fontSize: "13px",
-            fontWeight: 600,
-            textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            color: "#10B981",
-            marginBottom: "16px",
-          }}
-        >
-          Demo 2 — 120 px Wide Panel
-        </h2>
-        <div
-          style={{
-            display: "flex",
-            height: "320px",
-            borderRadius: "6px",
-            overflow: "hidden",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-          }}
-        >
-          <GeometricSidebar label="QUOTATION" width={120} />
-          <div style={{ flex: 1, background: "#1E293B" }} />
-        </div>
-      </section>
-
-      {/* ── Demo 3: Raw pattern tile strip ── */}
-      <section>
-        <h2
-          style={{
-            fontSize: "13px",
-            fontWeight: 600,
-            textTransform: "uppercase",
-            letterSpacing: "0.1em",
-            color: "#10B981",
-            marginBottom: "16px",
-          }}
-        >
-          Demo 3 — Raw Emerald Triangle/Diamond Tile (288 × 288 px)
-        </h2>
-        <div
-          style={{
-            display: "inline-block",
-            borderRadius: "6px",
-            overflow: "hidden",
-            border: "1px solid #10B981",
-          }}
-        >
-          <GeometricPattern width={288} height={288} />
         </div>
       </section>
     </div>
