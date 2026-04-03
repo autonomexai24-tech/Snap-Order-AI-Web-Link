@@ -9,10 +9,11 @@ export function FloatingAttachmentButton() {
 
   return (
     <>
-      <div className="fixed bottom-6 right-6 z-50 pointer-events-auto flex flex-col items-end gap-3 no-print">
+      {/* Shifted to the top right on mobile to completely avoid the sticky bottom action bar. */}
+      <div className="fixed top-40 right-4 md:top-auto md:bottom-6 md:right-6 z-50 pointer-events-auto flex flex-col-reverse md:flex-col items-end gap-3 no-print">
         {/* Popover Menu for Attachments */}
         {isOpen && (
-          <div className="bg-white rounded-xl shadow-2xl border border-slate-200 p-2 w-64 origin-bottom-right animate-in zoom-in-95 fade-in-0 duration-200">
+          <div className="bg-white rounded-xl shadow-2xl border border-slate-200 p-2 w-64 origin-top-right md:origin-bottom-right animate-in zoom-in-95 fade-in-0 duration-200">
             <div className="flex items-center justify-between px-3 py-2 border-b border-slate-100 mb-2">
               <h3 className="text-sm font-bold text-slate-800">Attached Documents</h3>
               <button 
@@ -74,19 +75,19 @@ export function FloatingAttachmentButton() {
           )}
           <Button 
             onClick={() => setIsOpen(!isOpen)}
-            size="lg"
-            className="relative h-14 px-6 rounded-full shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 bg-orange-500 hover:bg-orange-600 text-white transition-all transform hover:-translate-y-1 active:scale-95 border-2 border-white"
+            size="default"
+            className="relative h-12 px-4 md:h-14 md:px-6 rounded-full shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 bg-orange-500 hover:bg-orange-600 text-white transition-all transform hover:-translate-y-1 active:scale-95 border-2 border-white"
             aria-label="View Documents"
           >
             {isOpen ? (
               <>
-                <X className="w-5 h-5 mr-2" />
-                <span className="font-bold text-base tracking-wide">Close</span>
+                <X className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />
+                <span className="font-bold text-sm md:text-base tracking-wide">Close</span>
               </>
             ) : (
               <>
-                <Paperclip className="w-5 h-5 mr-2" />
-                <span className="font-bold text-base tracking-wide">3 Attachments</span>
+                <Paperclip className="w-4 h-4 md:w-5 md:h-5 mr-1.5 md:mr-2" />
+                <span className="font-bold text-sm md:text-base tracking-wide">3 Attachments</span>
               </>
             )}
           </Button>
