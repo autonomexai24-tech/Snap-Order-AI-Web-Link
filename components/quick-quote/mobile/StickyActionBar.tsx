@@ -71,7 +71,7 @@ export function StickyActionBar({ quote, grandTotal }: StickyActionBarProps) {
             id="sticky-pay-btn"
             type="button"
             onClick={() => setIsDrawerOpen(true)}
-            className="flex-1 h-[48px] rounded-full font-bold text-sm tracking-wide flex items-center justify-center text-white active:scale-95 transition-all overflow-hidden bg-slate-900 hover:bg-slate-800 shadow-md"
+            className="flex-1 h-[48px] rounded-full font-bold text-sm tracking-wide flex items-center justify-center text-white active:scale-95 transition-all overflow-hidden bg-tpl-secondary hover:bg-slate-800 shadow-md"
           >
             Pay Now {formatINR(grandTotal)}
           </button>
@@ -82,7 +82,7 @@ export function StickyActionBar({ quote, grandTotal }: StickyActionBarProps) {
       <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
         <DrawerContent className="pb-8">
           <DrawerHeader>
-            <DrawerTitle className="text-center text-xl font-bold text-slate-900">
+            <DrawerTitle className="text-center text-xl font-bold text-tpl-secondary">
               Pay {formatINR(grandTotal)}
             </DrawerTitle>
             <DrawerDescription className="text-center text-slate-500">

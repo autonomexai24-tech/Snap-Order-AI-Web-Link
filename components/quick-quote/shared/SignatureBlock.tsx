@@ -28,7 +28,7 @@ export function SignatureBlock({
         className="absolute top-4 right-8 pointer-events-none select-none opacity-20 transform -rotate-12"
         style={{ zIndex: 0 }}
       >
-        <div className="border-[3px] border-emerald-500 text-emerald-500 uppercase tracking-[0.3em] font-bold text-xl py-1 px-3 rounded-sm opacity-80" style={{ fontFamily: 'system-ui' }}>
+        <div className="border-[3px] border-tpl-accent text-tpl-accent uppercase tracking-[0.3em] font-bold text-xl py-1 px-3 rounded-sm opacity-80" style={{ fontFamily: 'system-ui' }}>
           AUTHORIZED
         </div>
       </div>

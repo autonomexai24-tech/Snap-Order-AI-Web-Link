@@ -41,7 +41,7 @@ export function ItemCard({ item, index }: ItemCardProps) {
       </div>
 
       <div className="flex-shrink-0 text-right pt-0.5">
-        <p className="text-sm font-bold font-mono tabular-nums text-slate-900">
+        <p className="text-sm font-bold font-mono tabular-nums text-tpl-secondary">
           {formatINR(lineTotal)}
         </p>
       </div>

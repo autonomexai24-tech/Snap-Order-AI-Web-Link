@@ -17,19 +17,19 @@ export function DocumentHeader({ quote }: DocumentHeaderProps) {
         tailored graphic accent at the very top edge.
       */}
       <div className="absolute top-0 left-0 w-full h-[18px] flex">
-        <div className="w-[35%] h-full bg-slate-900" />
+        <div className="w-[35%] h-full bg-tpl-secondary" />
         <div 
-          className="w-[25px] h-full bg-slate-900" 
+          className="w-[25px] h-full bg-tpl-secondary" 
           style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
         />
-        <div className="flex-1 h-full bg-orange-500" />
+        <div className="flex-1 h-full bg-tpl-primary" />
       </div>
 
       {/* Foreground Content */}
       <div className="relative px-12 pt-14 flex items-start justify-between gap-6">
         {/* Left: Dynamic Company Logo */}
         <div className="flex items-center gap-3 mt-1">
-          <div className="w-12 h-12 bg-orange-500 rounded flex items-center justify-center shrink-0 shadow-md">
+          <div className="w-12 h-12 bg-tpl-primary rounded flex items-center justify-center shrink-0 shadow-md">
             <Component className="w-7 h-7 text-white" />
           </div>
           <div className="flex flex-col text-left">
@@ -44,12 +44,12 @@ export function DocumentHeader({ quote }: DocumentHeaderProps) {
 
         {/* Right: The 'QUOTATION' Hero Title */}
         <div className="flex flex-col items-end text-right">
-          <h1 className="text-[42px] font-black text-orange-500 tracking-tighter leading-none mb-3">
+          <h1 className="text-[42px] font-black text-tpl-primary tracking-tighter leading-none mb-3">
             QUOTATION
           </h1>
           
           <div className="flex items-center justify-end gap-3 mt-1">
-            <span className="text-xl font-bold font-mono text-slate-900">
+            <span className="text-xl font-bold font-mono text-tpl-secondary">
               {quote.documentNumber}
             </span>
             <StatusBadge status={quote.status} />

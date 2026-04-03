@@ -204,7 +204,7 @@ export function UpiQrModal({
         </DialogHeader>
 
         <div className="flex flex-col items-center gap-5">
-          <div className="p-4 rounded-2xl border-4 border-emerald-500 shadow-md bg-white">
+          <div className="p-4 rounded-2xl border-4 border-tpl-accent shadow-md bg-white">
             <canvas
               ref={canvasRef}
               width={220}

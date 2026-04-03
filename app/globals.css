@@ -30,6 +30,11 @@
   --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-sans), 'Inter', sans-serif;
   --font-mono: var(--font-mono), 'JetBrains Mono', monospace;
+  
+  /* Template Theme Mapping */
+  --color-tpl-primary: var(--tpl-primary);
+  --color-tpl-secondary: var(--tpl-secondary);
+  --color-tpl-accent: var(--tpl-accent);
 }
 
 /* Emerald Executive Theme Variables */
@@ -63,6 +68,11 @@
   --ring: #10B981;
   
   --radius: 0.5rem; /* Strict 8px standard */
+  
+  /* Default Template (Clean) */
+  --tpl-primary: #F97316; /* orange-500 */
+  --tpl-secondary: #0F172A; /* slate-900 */
+  --tpl-accent: #10B981; /* emerald-500 */
 }
 
 /* Dark mode fallback just in case */
@@ -92,6 +102,25 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* --- TEMPLATE THEMES --- */
+  [data-theme="clean"] {
+    --tpl-primary: #F97316; 
+    --tpl-secondary: #0F172A; 
+    --tpl-accent: #10B981; 
+  }
+  
+  [data-theme="modern"] {
+    --tpl-primary: #3B82F6; /* Azure Blue (blue-500) */
+    --tpl-secondary: #27272A; /* Cool Gray (zinc-800) */
+    --tpl-accent: #6366F1; /* Indigo */
+  }
+  
+  [data-theme="premium"] {
+    --tpl-primary: #D4AF37; /* Pale Gold */
+    --tpl-secondary: #171717; /* Velvet Black (neutral-900) */
+    --tpl-accent: #EAB308; /* Rich Amber */
   }
 }
 

@@ -12,7 +12,7 @@ export function BankDetailsBlock({ bankDetails }: BankDetailsBlockProps) {
     <div className="border border-border bg-white mt-4">
       <div className="flex items-center gap-2 px-6 py-4 border-b border-border bg-neutral-50">
         <Building2 className="w-4 h-4 text-slate-800" aria-hidden="true" />
-        <span className="text-sm font-bold text-slate-900 uppercase tracking-widest">Bank Details</span>
+        <span className="text-sm font-bold text-tpl-secondary uppercase tracking-widest">Bank Details</span>
         <span className="text-[11px] text-muted-foreground uppercase tracking-widest font-semibold ml-2">
           (NEFT / RTGS / IMPS)
         </span>
@@ -33,7 +33,7 @@ export function BankDetailsBlock({ bankDetails }: BankDetailsBlockProps) {
               </p>
               <p
                 className={[
-                  "text-sm text-slate-900",
+                  "text-sm text-tpl-secondary",
                   field.mono ? "font-mono tracking-wider" : "font-medium",
                   field.large ? "text-[15px] font-bold" : "",
                   field.bold ? "font-bold text-emerald-800" : ""

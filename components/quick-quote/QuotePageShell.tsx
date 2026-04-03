@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import type { QuotationDocument } from "./types"
 import { MobileLayout } from "./mobile/MobileLayout"
 import { DesktopLayout } from "./desktop/DesktopLayout"
-import { FloatingAttachmentButton } from "./shared/FloatingAttachmentButton"
+import { ThemeSwitcher } from "./shared/ThemeSwitcher"
 
 interface QuotePageShellProps {
   quote: QuotationDocument
@@ -40,8 +40,8 @@ export function QuotePageShell({ quote: initialQuote }: QuotePageShellProps) {
         <DesktopLayout quote={quote} />
       </div>
       
-      {/* Global Floating Action Button for Attachments */}
-      <FloatingAttachmentButton />
+      {/* Client-side Theme Switcher for testing templates */}
+      <ThemeSwitcher />
     </>
   )
 }

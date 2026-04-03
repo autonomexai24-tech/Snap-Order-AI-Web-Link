@@ -22,7 +22,7 @@ export function TotalBannerMobile({ totals, onViewGST }: TotalBannerMobileProps)
     <div className="mt-8 mb-4 flex flex-col bg-slate-100 w-[calc(100%+2rem)] -ml-4">
       
       {/* Breakdown lines - Slate-900 Block */}
-      <div className="flex flex-col gap-3 px-6 pt-8 pb-6 bg-slate-900">
+      <div className="flex flex-col gap-3 px-6 pt-8 pb-6 bg-tpl-secondary">
         {totals.discountAmount > 0 && (
           <div className="flex items-center justify-between text-slate-300 font-medium">
             <span className="text-xs uppercase tracking-[0.1em]">Subtotal</span>
@@ -32,7 +32,7 @@ export function TotalBannerMobile({ totals, onViewGST }: TotalBannerMobileProps)
           </div>
         )}
         {totals.discountAmount > 0 && (
-          <div className="flex items-center justify-between text-orange-400 font-bold">
+          <div className="flex items-center justify-between text-tpl-primary/80 font-bold">
             <span className="text-xs uppercase tracking-[0.1em]">Discount</span>
             <span className="text-sm font-mono tabular-nums">
               - {formatINR(totals.discountAmount)}
@@ -48,7 +48,7 @@ export function TotalBannerMobile({ totals, onViewGST }: TotalBannerMobileProps)
       </div>
 
       {/* Hero Grand Total - Orange Edge-to-Edge Block */}
-      <div className="flex items-center justify-between px-6 bg-orange-500 py-6 border-t-[3px] border-slate-900 relative">
+      <div className="flex items-center justify-between px-6 bg-tpl-primary py-6 border-t-[3px] border-tpl-secondary relative">
         <div className="flex flex-col gap-1.5">
           <span className="text-[10px] uppercase tracking-[0.2em] font-extrabold text-white/80">
             Total Payable
@@ -61,7 +61,7 @@ export function TotalBannerMobile({ totals, onViewGST }: TotalBannerMobileProps)
         <button
           type="button"
           onClick={onViewGST}
-          className="flex items-center justify-center w-12 h-12 rounded-full bg-white text-orange-600 hover:bg-orange-50 active:scale-95 transition-all shrink-0 shadow-lg"
+          className="flex items-center justify-center w-12 h-12 rounded-full bg-white text-tpl-primary hover:bg-tpl-primary/10 active:scale-95 transition-all shrink-0 shadow-lg"
           aria-label="View GST Breakup"
         >
           <ChevronRight className="w-6 h-6" aria-hidden="true" />

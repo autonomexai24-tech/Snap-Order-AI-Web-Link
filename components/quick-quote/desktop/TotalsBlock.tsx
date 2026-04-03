@@ -73,7 +73,7 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
                   "text-[12px] tracking-widest",
                   row.isMuted
                     ? "text-slate-400 font-semibold uppercase"
-                    : "text-slate-900 font-bold uppercase",
+                    : "text-tpl-secondary font-bold uppercase",
                 ].join(" ")}
               >
                 {row.label}
@@ -85,7 +85,7 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
                     ? "text-red-500 font-bold"
                     : row.isMuted
                     ? "text-slate-500 font-medium"
-                    : "font-bold text-slate-900",
+                    : "font-bold text-tpl-secondary",
                 ].join(" ")}
               >
                 {row.value}
@@ -98,7 +98,7 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
           Full-width Orange color-block for the Grand Total 
           Pure White text for premium contrast
         */}
-        <div className="w-full bg-orange-500 shadow-lg flex items-center justify-between px-6 py-6 -mr-6 rounded-l-sm">
+        <div className="w-full bg-tpl-primary shadow-lg flex items-center justify-between px-6 py-6 -mr-6 rounded-l-sm">
           <span className="text-[14px] font-extrabold text-white uppercase tracking-[0.15em] drop-shadow-sm">
             Total Due
           </span>
