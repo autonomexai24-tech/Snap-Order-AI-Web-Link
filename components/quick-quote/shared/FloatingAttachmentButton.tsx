@@ -67,18 +67,30 @@ export function FloatingAttachmentButton() {
         )}
 
         {/* The Action Button */}
-        <Button 
-          onClick={() => setIsOpen(!isOpen)}
-          size="lg"
-          className="h-14 w-14 rounded-full shadow-lg hover:shadow-xl bg-slate-900 hover:bg-slate-800 text-white transition-all transform hover:-translate-y-1 active:scale-95"
-          aria-label="View Documents"
-        >
-          {isOpen ? (
-            <X className="w-6 h-6 transition-transform" />
-          ) : (
-            <Paperclip className="w-6 h-6 transition-transform" />
+        <div className="relative group">
+          {/* Subtle pulse ring to draw the eye initially */}
+          {!isOpen && (
+            <div className="absolute -inset-1 rounded-full bg-orange-500 opacity-20 animate-ping" style={{ animationDuration: '3s' }} />
           )}
-        </Button>
+          <Button 
+            onClick={() => setIsOpen(!isOpen)}
+            size="lg"
+            className="relative h-14 px-6 rounded-full shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 bg-orange-500 hover:bg-orange-600 text-white transition-all transform hover:-translate-y-1 active:scale-95 border-2 border-white"
+            aria-label="View Documents"
+          >
+            {isOpen ? (
+              <>
+                <X className="w-5 h-5 mr-2" />
+                <span className="font-bold text-base tracking-wide">Close</span>
+              </>
+            ) : (
+              <>
+                <Paperclip className="w-5 h-5 mr-2" />
+                <span className="font-bold text-base tracking-wide">3 Attachments</span>
+              </>
+            )}
+          </Button>
+        </div>
       </div>
     </>
   )
