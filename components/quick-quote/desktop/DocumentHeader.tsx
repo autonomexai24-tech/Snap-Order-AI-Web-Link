@@ -1,6 +1,7 @@
 "use client"
 
 import { StatusBadge } from "../shared/StatusBadge"
+import { Component } from "lucide-react"
 import type { Quote } from "../types"
 
 interface DocumentHeaderProps {
@@ -26,14 +27,19 @@ export function DocumentHeader({ quote }: DocumentHeaderProps) {
 
       {/* Foreground Content */}
       <div className="relative px-12 pt-14 flex items-start justify-between gap-6">
-        {/* Left: Metadata / Brand Tagline */}
-        <div className="flex flex-col gap-1 mt-1">
-          <h2 className="text-sm font-bold text-slate-400 uppercase tracking-[0.2em]">
-            Digital Platform
-          </h2>
-          <p className="text-xs font-semibold text-slate-500 mt-0.5 tracking-wider">
-            Reference Document
-          </p>
+        {/* Left: Dynamic Company Logo */}
+        <div className="flex items-center gap-3 mt-1">
+          <div className="w-12 h-12 bg-orange-500 rounded flex items-center justify-center shrink-0 shadow-md">
+            <Component className="w-7 h-7 text-white" />
+          </div>
+          <div className="flex flex-col text-left">
+            <h2 className="text-xl font-black text-slate-800 tracking-tight leading-none">
+              BHARAT STEEL
+            </h2>
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">
+              Industrial Hardware
+            </p>
+          </div>
         </div>
 
         {/* Right: The 'QUOTATION' Hero Title */}

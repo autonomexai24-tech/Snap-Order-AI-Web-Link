@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import type { QuotationDocument } from "./types"
 import { MobileLayout } from "./mobile/MobileLayout"
 import { DesktopLayout } from "./desktop/DesktopLayout"
+import { FloatingAttachmentButton } from "./shared/FloatingAttachmentButton"
 
 interface QuotePageShellProps {
   quote: QuotationDocument
@@ -35,9 +36,12 @@ export function QuotePageShell({ quote: initialQuote }: QuotePageShellProps) {
       <div className="block lg:hidden">
         <MobileLayout quote={quote} />
       </div>
-      <div className="hidden lg:block">
+      <div className="hidden lg:block relative">
         <DesktopLayout quote={quote} />
       </div>
+      
+      {/* Global Floating Action Button for Attachments */}
+      <FloatingAttachmentButton />
     </>
   )
 }

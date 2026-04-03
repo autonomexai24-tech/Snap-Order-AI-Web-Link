@@ -2,6 +2,7 @@
 
 import { StatusBadge } from "../shared/StatusBadge"
 import { formatDate } from "../utils"
+import { Component } from "lucide-react"
 import type { QuotationDocument } from "../types"
 
 interface MobileHeaderProps {
@@ -33,12 +34,22 @@ export function MobileHeader({ quote }: MobileHeaderProps) {
 
       <div className="flex items-start justify-between px-5 pt-10 pb-2">
         <div className="flex flex-col text-left">
-          <h1 className="text-3xl font-black text-orange-500 tracking-tighter leading-none">
+          <h1 className="text-3xl font-black text-orange-500 tracking-tighter leading-none mb-3">
             QUOTATION
           </h1>
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1.5 ml-0.5">
-            Digital Platform
-          </p>
+          <div className="flex items-center gap-2 mt-1">
+            <div className="w-8 h-8 bg-orange-500 rounded flex items-center justify-center shrink-0 shadow-sm">
+              <Component className="w-5 h-5 text-white" />
+            </div>
+            <div className="flex flex-col">
+              <h2 className="text-sm font-black text-slate-800 tracking-tight leading-none">
+                BHARAT STEEL
+              </h2>
+              <p className="text-[8px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-0.5">
+                Industrial Hardware
+              </p>
+            </div>
+          </div>
         </div>
         <div className="mt-1">
           <StatusBadge status={quote.status} />
