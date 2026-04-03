@@ -96,31 +96,31 @@
   --ring: #10B981;
 }
 
+/* --- TEMPLATE THEMES --- */
+[data-theme="clean"] {
+  --tpl-primary: #F97316; 
+  --tpl-secondary: #0F172A; 
+  --tpl-accent: #10B981; 
+}
+
+[data-theme="modern"] {
+  --tpl-primary: #0EA5E9; /* Vibrant Sky Blue (sky-500) */
+  --tpl-secondary: #0F172A; /* Deep Navy (slate-900) */
+  --tpl-accent: #0284C7; /* Mid-tone Blue */
+}
+
+[data-theme="premium"] {
+  --tpl-primary: #D4AF37; /* Pale Gold */
+  --tpl-secondary: #171717; /* Velvet Black (neutral-900) */
+  --tpl-accent: #EAB308; /* Rich Amber */
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
-  }
-  
-  /* --- TEMPLATE THEMES --- */
-  [data-theme="clean"] {
-    --tpl-primary: #F97316; 
-    --tpl-secondary: #0F172A; 
-    --tpl-accent: #10B981; 
-  }
-  
-  [data-theme="modern"] {
-    --tpl-primary: #3B82F6; /* Azure Blue (blue-500) */
-    --tpl-secondary: #27272A; /* Cool Gray (zinc-800) */
-    --tpl-accent: #6366F1; /* Indigo */
-  }
-  
-  [data-theme="premium"] {
-    --tpl-primary: #D4AF37; /* Pale Gold */
-    --tpl-secondary: #171717; /* Velvet Black (neutral-900) */
-    --tpl-accent: #EAB308; /* Rich Amber */
   }
 }
 

@@ -24,18 +24,16 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
         <Table>
           <TableHeader>
             <TableRow className="border-none hover:bg-transparent">
-              {/* Left Side: Solid Charcoal */}
-              <TableHead className="w-10 text-center text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-secondary rounded-tl-sm">
+              {/* Entire header is solid vibrant blue */}
+              <TableHead className="w-10 text-center text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary rounded-tl-sm">
                 SN
               </TableHead>
-              <TableHead className="text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-secondary">
+              <TableHead className="text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
                 Description
               </TableHead>
-              <TableHead className="text-[11px] text-slate-300 uppercase tracking-widest font-mono py-3.5 h-auto bg-tpl-secondary">
+              <TableHead className="text-[11px] text-sky-100 uppercase tracking-widest font-mono py-3.5 h-auto bg-tpl-primary">
                 HSN
               </TableHead>
-              
-              {/* Right Side: Solid Orange */}
               <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
                 Qty
               </TableHead>
@@ -45,7 +43,7 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
               <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
                 Rate (&#8377;)
               </TableHead>
-              <TableHead className="text-right text-[11px] text-orange-100 uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
+              <TableHead className="text-right text-[11px] text-sky-100 uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
                 GST
               </TableHead>
               <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-extrabold py-3.5 h-auto pr-4 bg-tpl-primary rounded-tr-sm">
@@ -59,7 +57,7 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
               return (
                 <TableRow
                   key={item.id}
-                  className="border-b border-slate-100 bg-white hover:bg-slate-50 transition-colors"
+                  className="border-b-0 even:bg-slate-50 odd:bg-white hover:bg-slate-100/50 transition-colors"
                 >
                   <TableCell className="text-center text-xs text-slate-400 w-10 py-5 font-mono">
                     {String(index + 1).padStart(2, '0')}

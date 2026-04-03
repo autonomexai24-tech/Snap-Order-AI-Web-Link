@@ -140,15 +140,23 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
             </div>
 
             {/* Paper footer — page reference strip */}
+            <div className="absolute bottom-0 left-0 w-[300px] h-[200px] pointer-events-none z-0 rounded-bl-[2px] overflow-hidden">
+              <div className="absolute bottom-0 left-0 w-[80%] h-full bg-tpl-secondary opacity-90" style={{ clipPath: 'polygon(0 0, 0 100%, 100% 100%)' }} />
+              <div className="absolute bottom-0 left-0 w-full h-[70%] bg-tpl-primary" style={{ clipPath: 'polygon(0 30%, 0 100%, 100% 100%)' }} />
+              <div className="absolute bottom-[10%] left-[10%] w-[50%] h-[50%] bg-tpl-accent opacity-90" style={{ clipPath: 'polygon(50% 0, 0 100%, 100% 100%)' }} />
+            </div>
+
             <footer
               id="desktop-paper-footer"
+              className="relative z-10"
               style={{
                 borderTop: "1px solid #E5E2DC",
                 padding: "10px 40px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
-                backgroundColor: "#FAFAF9",
+                backgroundColor: "rgba(250, 250, 249, 0.6)",
+                backdropFilter: "blur(4px)"
               }}
             >
               <span

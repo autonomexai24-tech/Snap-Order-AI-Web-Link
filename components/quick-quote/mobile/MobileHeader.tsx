@@ -20,23 +20,20 @@ interface MobileHeaderProps {
 export function MobileHeader({ quote }: MobileHeaderProps) {
   return (
     <header className="sticky top-0 z-20 pb-5 bg-white shadow-sm overflow-hidden">
-      {/* 
-        The Exact 18px Top Border replicated from DocumentHeader.tsx 
-      */}
-      <div className="absolute top-0 left-0 w-full h-[18px] flex">
-        <div className="w-[35%] h-full bg-tpl-secondary" />
-        <div 
-          className="w-[25px] h-full bg-tpl-secondary" 
-          style={{ clipPath: "polygon(0 0, 100% 0, 0 100%)" }}
-        />
-        <div className="flex-1 h-full bg-tpl-primary" />
+      <div className="absolute top-0 right-0 w-[280px] h-[180px] pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-[85%] bg-tpl-secondary" style={{ clipPath: 'polygon(100% 0, 0 0, 100% 100%)' }} />
+        <div className="absolute top-0 right-0 w-[75%] h-[100%] bg-tpl-primary" style={{ clipPath: 'polygon(100% 0, 0 0, 100% 70%)' }} />
+        <div className="absolute top-0 right-[15%] w-[60%] h-[60%] bg-tpl-accent" style={{ clipPath: 'polygon(0 0, 100% 0, 50% 100%)' }} />
       </div>
 
-      <div className="flex items-start justify-between px-5 pt-10 pb-2">
+      <div className="flex items-start justify-between px-5 pt-10 pb-2 relative z-10">
         <div className="flex flex-col text-left">
-          <h1 className="text-3xl font-black text-tpl-primary tracking-tighter leading-none mb-3">
-            QUOTATION
-          </h1>
+          <div className="flex flex-col items-start mb-4">
+            <h1 className="text-3xl font-black text-tpl-secondary tracking-tighter leading-none">
+              QUOTATION
+            </h1>
+            <div className="h-[4px] w-14 bg-tpl-primary mt-1.5 shadow-sm" />
+          </div>
           <div className="flex items-center gap-2 mt-1">
             <div className="w-8 h-8 bg-tpl-primary rounded flex items-center justify-center shrink-0 shadow-sm">
               <Component className="w-5 h-5 text-white" />

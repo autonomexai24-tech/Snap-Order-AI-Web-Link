@@ -27,8 +27,8 @@ export function GSTBreakupTable({ gstLines, isInterState }: GSTBreakupTableProps
           <Table>
             <TableHeader>
               <TableRow className="border-none hover:bg-transparent">
-                <TableHead className="text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-tpl-secondary rounded-tl-sm">Tax Type</TableHead>
-                <TableHead className="text-right text-[10px] text-slate-300 uppercase tracking-widest font-bold py-3 h-auto bg-tpl-secondary">Taxable Value</TableHead>
+                <TableHead className="text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary rounded-tl-sm">Tax Type</TableHead>
+                <TableHead className="text-right text-[10px] text-sky-100 uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary">Taxable Value</TableHead>
                 {!isInterState && (
                   <>
                     <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary">CGST</TableHead>
@@ -45,7 +45,7 @@ export function GSTBreakupTable({ gstLines, isInterState }: GSTBreakupTableProps
               {gstLines.map((line) => (
                 <TableRow 
                   key={line.label} 
-                  className="border-b border-slate-100 bg-white hover:bg-slate-50 transition-colors"
+                  className="border-b-0 even:bg-slate-50 odd:bg-white hover:bg-slate-100/50 transition-colors"
                 >
                   <TableCell className="text-xs font-bold text-slate-800 py-4">{line.label}</TableCell>
                   <TableCell className="text-right text-[13px] font-mono font-medium text-slate-600 py-4">
