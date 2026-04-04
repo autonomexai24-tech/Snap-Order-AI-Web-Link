@@ -83,3 +83,20 @@ export interface ComputedTotals {
   grandTotal: number
   gstLines: GSTLine[]
 }
+
+export type TemplateId = 'clean' | 'modern' | 'premium';
+
+export interface ThemeStructure {
+  id: TemplateId;
+  name: string;
+  tokens: {
+    colors: { primary: string; secondary: string; accent: string; background: string };
+    typography: { headingFont: string; dataFont: string; bodyFont: string };
+    spacing: { sectionGap: string; elementGap: string };
+  };
+  layoutSettings: {
+    tableStyle: 'connected-header' | 'floating-rows' | 'minimalist-grid';
+    totalsStyle: 'edge-to-edge' | 'floating-card' | 'inline-summary';
+    headerAlignment: 'left-aligned' | 'center-split' | 'asymmetrical';
+  };
+}

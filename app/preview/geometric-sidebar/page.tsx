@@ -3,7 +3,7 @@
  * Foundation verification page — NOT for production use.
  * Lets the browser sub-agent visually confirm the Emerald Identity Block
  */
-import { GeometricSidebar } from "@/components/quick-quote/desktop/GeometricSidebar"
+import { GeometricSidebar } from "@/components/quick-quote/templates/clean/layouts/desktop/GeometricSidebar"
 
 export const metadata = {
   title: "Emerald Identity Block Preview",

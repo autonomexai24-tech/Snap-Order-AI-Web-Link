@@ -1,7 +1,7 @@
 "use client"
 
-import { formatDate } from "../utils"
-import type { QuotationDocument } from "../types"
+import { formatDate } from "../../../../utils"
+import type { QuotationDocument } from "../../../../types"
 
 interface QuoteMetaProps {
   quote: QuotationDocument

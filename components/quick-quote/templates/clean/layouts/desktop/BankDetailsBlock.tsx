@@ -1,7 +1,7 @@
 "use client"
 
 import { Building2 } from "lucide-react"
-import type { BankDetails } from "../types"
+import type { BankDetails } from "../../../../types"
 
 interface BankDetailsBlockProps {
   bankDetails: BankDetails

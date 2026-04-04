@@ -1,7 +1,7 @@
 "use client"
 
-import { formatINR } from "../utils"
-import type { ComputedTotals } from "../types"
+import { formatINR } from "../../../../utils"
+import type { ComputedTotals } from "../../../../types"
 
 interface TotalsBlockProps {
   totals: ComputedTotals
@@ -95,14 +95,14 @@ export function TotalsBlock({ totals }: TotalsBlockProps) {
         </div>
 
         {/* 
-          Full-width Orange color-block for the Grand Total 
-          Pure White text for premium contrast
+          Minimal UI: No heavy block backgrounds. 
+          Uses thin top border and purely typographic hierarchy.
         */}
-        <div className="w-full bg-tpl-primary shadow-lg flex items-center justify-between px-6 py-6 -mr-6 rounded-l-sm">
-          <span className="text-[14px] font-extrabold text-white uppercase tracking-[0.15em] drop-shadow-sm">
+        <div className="w-full flex items-center justify-between px-2 py-4 border-y-2 border-slate-900 mt-2">
+          <span className="text-[14px] font-extrabold text-slate-800 uppercase tracking-[0.15em]">
             Total Due
           </span>
-          <span className="text-2xl tabular-nums font-mono font-extrabold text-white drop-shadow-md">
+          <span className="text-3xl tabular-nums font-mono font-extrabold text-tpl-primary">
             {formatINR(totals.grandTotal)}
           </span>
         </div>

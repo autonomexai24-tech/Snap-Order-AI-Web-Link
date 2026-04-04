@@ -8,8 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { formatINR, calcLineTotal } from "../utils"
-import type { LineItem } from "../types"
+import { formatINR, calcLineTotal } from "../../../../utils"
+import type { LineItem } from "../../../../types"
 
 interface LineItemsTableProps {
   items: LineItem[]
@@ -23,30 +23,29 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
       <div className="w-full">
         <Table>
           <TableHeader>
-            <TableRow className="border-none hover:bg-transparent">
-              {/* Entire header is solid vibrant blue */}
-              <TableHead className="w-10 text-center text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary rounded-tl-sm">
+            <TableRow className="border-b-2 border-slate-200 bg-slate-50 hover:bg-slate-50">
+              <TableHead className="w-10 text-center text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3.5 h-auto">
                 SN
               </TableHead>
-              <TableHead className="text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
+              <TableHead className="text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3.5 h-auto">
                 Description
               </TableHead>
-              <TableHead className="text-[11px] text-sky-100 uppercase tracking-widest font-mono py-3.5 h-auto bg-tpl-primary">
+              <TableHead className="text-[10px] text-slate-400 uppercase tracking-widest font-mono py-3.5 h-auto">
                 HSN
               </TableHead>
-              <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
+              <TableHead className="text-right text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3.5 h-auto">
                 Qty
               </TableHead>
-              <TableHead className="text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto ml-2 bg-tpl-primary">
+              <TableHead className="text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3.5 h-auto ml-2">
                 Unit
               </TableHead>
-              <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
+              <TableHead className="text-right text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3.5 h-auto">
                 Rate (&#8377;)
               </TableHead>
-              <TableHead className="text-right text-[11px] text-sky-100 uppercase tracking-widest font-bold py-3.5 h-auto bg-tpl-primary">
+              <TableHead className="text-right text-[10px] text-slate-400 uppercase tracking-widest font-bold py-3.5 h-auto">
                 GST
               </TableHead>
-              <TableHead className="text-right text-[11px] text-white uppercase tracking-widest font-extrabold py-3.5 h-auto pr-4 bg-tpl-primary rounded-tr-sm">
+              <TableHead className="text-right text-[10px] text-slate-700 uppercase tracking-widest font-extrabold py-3.5 h-auto pr-4">
                 Total
               </TableHead>
             </TableRow>
@@ -57,7 +56,7 @@ export function LineItemsTable({ items }: LineItemsTableProps) {
               return (
                 <TableRow
                   key={item.id}
-                  className="border-b-0 even:bg-slate-50 odd:bg-white hover:bg-slate-100/50 transition-colors"
+                  className="border-b border-slate-100 hover:bg-slate-50 transition-colors"
                 >
                   <TableCell className="text-center text-xs text-slate-400 w-10 py-5 font-mono">
                     {String(index + 1).padStart(2, '0')}

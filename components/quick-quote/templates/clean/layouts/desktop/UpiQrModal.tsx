@@ -11,8 +11,8 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { UpiAppButtons } from "../shared/UpiAppButtons"
-import { buildUpiUri, formatINR } from "../utils"
+import { UpiAppButtons } from "../../../../shared/UpiAppButtons"
+import { buildUpiUri, formatINR } from "../../../../utils"
 
 // ─── Minimal QR encoder (Mode: Byte, ECC: M, Version auto-select) ───────────
 // Uses the browser's native canvas API to render a QR code from a URI string.

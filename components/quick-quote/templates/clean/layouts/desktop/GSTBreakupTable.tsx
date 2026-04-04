@@ -8,8 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { formatINR } from "../utils"
-import type { GSTLine } from "../types"
+import { formatINR } from "../../../../utils"
+import type { GSTLine } from "../../../../types"
 
 interface GSTBreakupTableProps {
   gstLines: GSTLine[]
@@ -26,26 +26,26 @@ export function GSTBreakupTable({ gstLines, isInterState }: GSTBreakupTableProps
         <div className="w-full">
           <Table>
             <TableHeader>
-              <TableRow className="border-none hover:bg-transparent">
-                <TableHead className="text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary rounded-tl-sm">Tax Type</TableHead>
-                <TableHead className="text-right text-[10px] text-sky-100 uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary">Taxable Value</TableHead>
+              <TableRow className="border-b-2 border-slate-200 bg-slate-50 hover:bg-slate-50">
+                <TableHead className="text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3 h-auto">Tax Type</TableHead>
+                <TableHead className="text-right text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3 h-auto">Taxable Value</TableHead>
                 {!isInterState && (
                   <>
-                    <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary">CGST</TableHead>
-                    <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary">SGST</TableHead>
+                    <TableHead className="text-right text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3 h-auto">CGST</TableHead>
+                    <TableHead className="text-right text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3 h-auto">SGST</TableHead>
                   </>
                 )}
                 {isInterState && (
-                  <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-bold py-3 h-auto bg-tpl-primary">IGST</TableHead>
+                  <TableHead className="text-right text-[10px] text-slate-500 uppercase tracking-widest font-bold py-3 h-auto">IGST</TableHead>
                 )}
-                <TableHead className="text-right text-[10px] text-white uppercase tracking-widest font-extrabold py-3 h-auto pr-4 bg-tpl-primary rounded-tr-sm">Total Tax</TableHead>
+                <TableHead className="text-right text-[10px] text-slate-700 uppercase tracking-widest font-extrabold py-3 h-auto pr-4">Total Tax</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {gstLines.map((line) => (
                 <TableRow 
                   key={line.label} 
-                  className="border-b-0 even:bg-slate-50 odd:bg-white hover:bg-slate-100/50 transition-colors"
+                  className="border-b border-slate-100 hover:bg-slate-50 transition-colors"
                 >
                   <TableCell className="text-xs font-bold text-slate-800 py-4">{line.label}</TableCell>
                   <TableCell className="text-right text-[13px] font-mono font-medium text-slate-600 py-4">

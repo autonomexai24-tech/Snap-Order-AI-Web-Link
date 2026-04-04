@@ -2,8 +2,8 @@
 
 import { Download, Share2, Printer, QrCode } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { formatINR } from "../utils"
-import type { QuotationDocument } from "../types"
+import { formatINR } from "../../../../utils"
+import type { QuotationDocument } from "../../../../types"
 
 interface TopActionBarProps {
   quote: QuotationDocument

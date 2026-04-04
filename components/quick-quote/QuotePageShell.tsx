@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 import type { QuotationDocument } from "./types"
-import { MobileLayout } from "./mobile/MobileLayout"
-import { DesktopLayout } from "./desktop/DesktopLayout"
+import { MobileLayout } from "./templates/clean/layouts/mobile/MobileLayout"
+import { DesktopLayout } from "./templates/clean/layouts/desktop/DesktopLayout"
 import { ThemeSwitcher } from "./shared/ThemeSwitcher"
 
 interface QuotePageShellProps {

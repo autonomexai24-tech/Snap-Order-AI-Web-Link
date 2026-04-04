@@ -9,8 +9,8 @@ import {
   DrawerClose,
 } from "@/components/ui/drawer"
 import { Button } from "@/components/ui/button"
-import { formatINR } from "../utils"
-import type { ComputedTotals } from "../types"
+import { formatINR } from "../../../../utils"
+import type { ComputedTotals } from "../../../../types"
 
 interface GSTSummaryDrawerProps {
   open: boolean

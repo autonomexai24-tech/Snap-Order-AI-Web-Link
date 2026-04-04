@@ -1,6 +1,6 @@
 "use client"
 
-import type { Party } from "../types"
+import type { Party } from "../../../../types"
 
 interface PartyInfoRowProps {
   seller: Party

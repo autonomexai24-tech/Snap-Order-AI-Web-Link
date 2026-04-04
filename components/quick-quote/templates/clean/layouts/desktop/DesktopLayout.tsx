@@ -19,8 +19,8 @@
  */
 
 import { useState } from "react"
-import type { QuotationDocument } from "../types"
-import { computeTotals } from "../utils"
+import type { QuotationDocument } from "../../../../types"
+import { computeTotals } from "../../../../utils"
 import { TopActionBar } from "./TopActionBar"
 import { DocumentHeader } from "./DocumentHeader"
 import { PartyInfoRow } from "./PartyInfoRow"
@@ -31,7 +31,7 @@ import { TotalsBlock } from "./TotalsBlock"
 import { BankDetailsBlock } from "./BankDetailsBlock"
 import { NotesFooter } from "./NotesFooter"
 import { UpiQrModal } from "./UpiQrModal"
-import { SignatureBlock } from "../shared/SignatureBlock"
+import { SignatureBlock } from "../../../../shared/SignatureBlock"
 
 interface DesktopLayoutProps {
   quote: QuotationDocument
@@ -140,11 +140,6 @@ export function DesktopLayout({ quote }: DesktopLayoutProps) {
             </div>
 
             {/* Paper footer — page reference strip */}
-            <div className="absolute bottom-0 left-0 w-[300px] h-[200px] pointer-events-none z-0 rounded-bl-[2px] overflow-hidden">
-              <div className="absolute bottom-0 left-0 w-[80%] h-full bg-tpl-secondary opacity-90" style={{ clipPath: 'polygon(0 0, 0 100%, 100% 100%)' }} />
-              <div className="absolute bottom-0 left-0 w-full h-[70%] bg-tpl-primary" style={{ clipPath: 'polygon(0 30%, 0 100%, 100% 100%)' }} />
-              <div className="absolute bottom-[10%] left-[10%] w-[50%] h-[50%] bg-tpl-accent opacity-90" style={{ clipPath: 'polygon(50% 0, 0 100%, 100% 100%)' }} />
-            </div>
 
             <footer
               id="desktop-paper-footer"
